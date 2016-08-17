@@ -1,0 +1,63 @@
+{
+  "content": {
+    "id": "sv_2",
+    "type": 2,
+    "tieringPolicy": 0,
+    "defaultNode": 0,
+    "currentNode": 0,
+    "health": {
+      "value": 5,
+      "descriptionIds": [
+        "ALRT_VOL_OK"
+      ],
+      "descriptions": [
+        "The LUN is operating normally. No action is required."
+      ]
+    },
+    "name": "gounity",
+    "description": "",
+    "sizeTotal": 10737418240,
+    "sizeAllocated": 0,
+    "compressionSizeSaved": 0,
+    "compressionPercent": 0,
+    "perTierSizeUsed": [
+      2952790016,
+      0,
+      0
+    ],
+    "isThinEnabled": true,
+    "isCompressionEnabled": false,
+    "wwn": "60:06:01:60:15:E0:3A:00:FF:D0:B3:57:AB:3B:6D:F1",
+    "isReplicationDestination": false,
+    "isSnapSchedulePaused": false,
+    "metadataSize": 10468982784,
+    "metadataSizeAllocated": 2684354560,
+    "snapWwn": "60:06:01:60:15:E0:3A:00:99:67:E7:16:DB:12:48:E0",
+    "snapsSize": 21474836480,
+    "snapsSizeAllocated": 0,
+    "hostAccess": [
+      {
+        "accessMask": 2,
+        "snapshotAccess": 1,
+        "host": {
+          "id": "Host_5"
+        }
+      },
+      {
+        "accessMask": 3,
+        "productionAccess": 1,
+        "snapshotAccess": 1,
+        "host": {
+          "id": "Host_6"
+        }
+      }
+    ],
+    "snapCount": 2,
+    "storageResource": {
+      "id": "sv_2"
+    },
+    "pool": {
+      "id": "pool_1"
+    }
+  }
+}

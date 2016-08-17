@@ -1,0 +1,29 @@
+{
+  "content": {
+    "supportedUpgradeModels": [
+      4,
+      4
+    ],
+    "id": "0",
+    "health": {
+      "value": 5,
+      "descriptionIds": [
+        "ALRT_SYSTEM_OK"
+      ],
+      "descriptions": [
+        "The system is operating normally."
+      ]
+    },
+    "name": "FNM00150600267",
+    "model": "Unity 500",
+    "serialNumber": "FNM00150600267",
+    "internalModel": "OBERON 25 DRIVE CHASSIS",
+    "platform": "Oberon_DualSP",
+    "macAddress": "08:00:1B:FF:16:F9",
+    "isEULAAccepted": true,
+    "isUpgradeComplete": false,
+    "isAutoFailbackEnabled": true,
+    "currentPower": 503,
+    "avgPower": 504
+  }
+}

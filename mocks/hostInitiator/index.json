@@ -1,0 +1,58 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/hostInitiator?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=True&fields=chapUserName,health,id,initiatorId,instanceId,isBound,isChapSecretEnabled,isIgnored,iscsiType,name,nodeWWN,operationalStatus,parentHost,paths,portWWN,sourceType,type",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=true&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,parentHost,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,paths,iscsiType,isBound,sourceType&filter=initiatorId eq \"20:00:00:90:FA:53:41:40:10:00:00:90:FA:53:41:40\"",
+      "response": "initiator_2.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=true&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,parentHost,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,paths,iscsiType,isBound,sourceType&filter=initiatorId eq \"20:00:00:90:FA:53:41:40:10:00:00:90:FA:AA:AA:AA\"",
+      "response": "not_found.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=true&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,parentHost,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,paths,iscsiType,isBound,sourceType&filter=initiatorId eq \"AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99\"",
+      "response": "not_found.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=true&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,parentHost,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,paths,iscsiType,isBound,sourceType&filter=initiatorId eq \"AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:88:88:88:88\"",
+      "response": "not_found.json"
+    },
+    {
+      "url": "/api/instances/hostInitiator/HostInitiator_49?compact=true&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,parentHost,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,paths,iscsiType,isBound,sourceType",
+      "response": "initiator_49.json"
+    },
+    {
+      "url": "/api/instances/hostInitiator/HostInitiator_49?compact=true",
+      "response": "empty.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=true",
+      "body": {
+        "host": {
+          "id": "Host_13"
+        },
+        "initiatorType": 1,
+        "initiatorWWNorIqn": "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99"
+      },
+      "response": "create_initiator_49.json"
+    },
+    {
+      "url": "/api/types/hostInitiator/instances?compact=true",
+      "body": {
+        "host": {
+          "id": "Host_999"
+        },
+        "initiatorType": 1,
+        "initiatorWWNorIqn": "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:88:88:88:88"
+      },
+      "response": "host_not_found.json"
+    }
+  ]
+}

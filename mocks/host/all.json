@@ -1,0 +1,227 @@
+{
+  "@base": "https://10.244.223.61/api/types/host/instances?fields=id,health,name,description,type,osType,hostUUID,hostPushedUUID,hostPolledUUID,lastPollTime,autoManageType,registrationType,hostContainer.id,hostLUNs.id,storageResources.id,datastores.id,hostIPPorts.id,fcHostInitiators.id,hostVVolDatastore.id,iscsiHostInitiators.id,vms.id,tenant.id&per_page=2000&compact=true",
+  "updated": "2016-08-22T08:48:44.369Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "Host_1",
+        "type": 5,
+        "autoManageType": 2,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "ESD-HOST193221.meng.lab.emc.com",
+        "description": "",
+        "osType": "Other",
+        "hostPushedUUID": "ef78e03c-b57b-4c82-96b0-da9a991fe6d9",
+        "fcHostInitiators": [
+          {
+            "id": "HostInitiator_4"
+          },
+          {
+            "id": "HostInitiator_1"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "id": "Host_2",
+        "type": 5,
+        "autoManageType": 2,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "ESD-HOST198232.meng.lab.emc.com",
+        "description": "",
+        "osType": "Other",
+        "hostPushedUUID": "345119f3-d49a-456a-948b-829e81dfdd9e",
+        "fcHostInitiators": [
+          {
+            "id": "HostInitiator_3"
+          },
+          {
+            "id": "HostInitiator_2"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "id": "Host_3",
+        "type": 1,
+        "autoManageType": 0,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "test",
+        "description": "",
+        "osType": "Linux",
+        "hostIPPorts": [
+          {
+            "id": "HostNetworkAddress_1"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "id": "Host_4",
+        "type": 1,
+        "autoManageType": 0,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "192.168.114.2",
+        "description": "",
+        "osType": "",
+        "hostIPPorts": [
+          {
+            "id": "HostNetworkAddress_2"
+          }
+        ],
+        "tenant": {
+          "id": "tenant_1"
+        }
+      }
+    },
+    {
+      "content": {
+        "id": "Host_5",
+        "type": 5,
+        "autoManageType": 2,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "ESX239209",
+        "description": "",
+        "osType": "VMware ESXi 6.0.0",
+        "hostPushedUUID": "53181249-9747-97f0-9feb-a44c11a10b6a",
+        "iscsiHostInitiators": [
+          {
+            "id": "HostInitiator_7"
+          }
+        ],
+        "hostLUNs": [
+          {
+            "id": "Host_5_sv_2_snap"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "id": "Host_6",
+        "type": 1,
+        "autoManageType": 0,
+        "health": {
+          "value": 10,
+          "descriptionIds": [
+            "ALRT_HOST_INITIATORS_NO_HA"
+          ],
+          "descriptions": [
+            "The host only has one path to the storage system. Add multiple paths between host and storage systems to establish redundancy."
+          ],
+          "resolutionIds": [
+            "host_add_initiator_path"
+          ]
+        },
+        "name": "gohost",
+        "description": "",
+        "osType": "Windows Client",
+        "iscsiHostInitiators": [
+          {
+            "id": "HostInitiator_10"
+          }
+        ],
+        "hostIPPorts": [
+          {
+            "id": "HostNetworkAddress_3"
+          }
+        ],
+        "hostLUNs": [
+          {
+            "id": "Host_6_sv_2_prod"
+          },
+          {
+            "id": "Host_6_sv_2_snap"
+          },
+          {
+            "id": "Host_6_sv_2_snap_60:06:01:60:15:E0:3A:00:96:56:72:6A:AB:16:49:7B"
+          },
+          {
+            "id": "Host_6_sv_2_snap_60:06:01:60:15:E0:3A:00:7B:7F:2F:DA:AF:95:42:20"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "id": "Host_7",
+        "type": 1,
+        "autoManageType": 0,
+        "health": {
+          "value": 10,
+          "descriptionIds": [
+            "ALRT_HOST_NO_LOGGED_IN_INITIATORS"
+          ],
+          "descriptions": [
+            "The host does not have any initiators logged into the storage system. Register one or more initiators on the host to the storage system. This may also require zoning changes on the switches."
+          ],
+          "resolutionIds": [
+            "host_connect_initiators"
+          ]
+        },
+        "name": "openstack-liangr-01",
+        "description": "",
+        "osType": "",
+        "iscsiHostInitiators": [
+          {
+            "id": "HostInitiator_29"
+          }
+        ],
+        "hostLUNs": [
+          {
+            "id": "Host_7_sv_4_prod"
+          }
+        ]
+      }
+    }
+  ]
+}

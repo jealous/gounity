@@ -1,0 +1,28 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/lun?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount&filter=name eq \"lun1\"",
+      "response": "lun1.json"
+    },
+    {
+      "url": "/api/instances/lun/sv_2?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount",
+      "response": "sv_2.json"
+    },
+    {
+      "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount&filter=name eq \"gounity\"",
+      "response": "gounity.json"
+    },
+    {
+      "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount&filter=pool eq \"pool_1\"",
+      "response": "pool_1_luns.json"
+    }
+  ]
+}

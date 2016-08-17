@@ -1,0 +1,12 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/system?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/instances/system/0?compact=true&fields=id,health,name,model,serialNumber,internalModel,platform,macAddress,isEULAAccepted,isUpgradeComplete,isAutoFailbackEnabled,currentPower,avgPower,supportedUpgradeModels",
+      "response": "0.json"
+    }
+  ]
+}

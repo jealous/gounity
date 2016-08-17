@@ -1,0 +1,76 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/storageResource/action/createLun?compact=True",
+      "body": {
+        "lunParameters": {
+          "pool": {
+            "id": "pool_1"
+          },
+          "size": 5368709120
+        },
+        "name": "gounity"
+      },
+      "response": "create_lun_sv2.json"
+    },
+    {
+      "url": "/api/types/storageResource/action/createLun?compact=True",
+      "body": {
+        "lunParameters": {
+          "pool": {
+            "id": "pool_1"
+          },
+          "size": 5368709120
+        },
+        "name": "openstack_dummy_lun"
+      },
+      "response": "lun_name_used.json"
+    },
+    {
+      "url": "/api/instances/storageResource/sv_4?compact=True",
+      "response": "empty.json"
+    },
+    {
+      "url": "/api/instances/storageResource/sv_5?compact=True",
+      "response": "not_found.json"
+    },
+    {
+      "url": "/api/instances/storageResource/sv_63/action/modifyLun?compact=true",
+      "body": {
+        "lunParameters": {
+          "hostAccess": [
+            {
+              "accessMask": 1,
+              "host": {
+                "id": "Host_6"
+              }
+            },
+            {
+              "accessMask": 1,
+              "host": {
+                "id": "Host_7"
+              }
+            }
+          ]
+        }
+      },
+      "response": "empty.json"
+    },
+    {
+      "url": "/api/instances/storageResource/sv_63/action/modifyLun?compact=true",
+      "body": {
+        "lunParameters": {
+          "hostAccess": [
+            {
+              "accessMask": 1,
+              "host": {
+                "id": "Host_7"
+              }
+            }
+          ]
+        }
+      },
+      "response": "empty.json"
+    }
+  ]
+}

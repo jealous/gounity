@@ -1,0 +1,20 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/hostLUN?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/hostLUN/instances?compact=true&fields=id,host,type,hlu,lun,snap,isReadOnly,isDefaultSnap&filter=host eq \"Host_5\" and lun eq \"sv_2\"",
+      "response": "Host_5_sv_2_snap.json"
+    },
+    {
+      "url": "/api/types/hostLUN/instances?compact=true&fields=id,host,type,hlu,lun,snap,isReadOnly,isDefaultSnap&filter=host eq \"Host_6\" and lun eq \"sv_63\"",
+      "response": "Host_6_sv_63_snap.json"
+    },
+    {
+      "url": "/api/types/hostLUN/instances?compact=true&fields=id,host,type,hlu,lun,snap,isReadOnly,isDefaultSnap&filter=host eq \"Host_5\" and lun eq \"sv_99\"",
+      "response": "not_found.json"
+    }
+  ]
+}

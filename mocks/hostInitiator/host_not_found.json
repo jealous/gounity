@@ -1,0 +1,12 @@
+{
+  "error": {
+    "errorCode": 131149864,
+    "httpStatusCode": 422,
+    "messages": [
+      {
+        "en-US": "Cannot find the specified host by id Host_999.  Please recheck if it exists. (Error Code:0x7d13028)"
+      }
+    ],
+    "created": "2016-08-30T03:58:56.787Z"
+  }
+}

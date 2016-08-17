@@ -1,0 +1,46 @@
+{
+  "content": {
+    "id": "Host_6",
+    "type": 1,
+    "autoManageType": 0,
+    "health": {
+      "value": 10,
+      "descriptionIds": [
+        "ALRT_HOST_INITIATORS_NO_HA"
+      ],
+      "descriptions": [
+        "The host only has one path to the storage system. Add multiple paths between host and storage systems to establish redundancy."
+      ],
+      "resolutionIds": [
+        "host_add_initiator_path"
+      ]
+    },
+    "name": "gohost",
+    "description": "",
+    "osType": "Windows Client",
+    "iscsiHostInitiators": [
+      {
+        "id": "HostInitiator_10"
+      }
+    ],
+    "hostIPPorts": [
+      {
+        "id": "HostNetworkAddress_3"
+      }
+    ],
+    "hostLUNs": [
+      {
+        "id": "Host_6_sv_2_prod"
+      },
+      {
+        "id": "Host_6_sv_2_snap_60:06:01:60:15:E0:3A:00:96:56:72:6A:AB:16:49:7B"
+      },
+      {
+        "id": "Host_6_sv_2_snap"
+      },
+      {
+        "id": "Host_6_sv_2_snap_60:06:01:60:15:E0:3A:00:7B:7F:2F:DA:AF:95:42:20"
+      }
+    ]
+  }
+}

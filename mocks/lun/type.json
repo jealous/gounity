@@ -1,0 +1,195 @@
+{
+  "content": {
+    "name": "lun",
+    "description": "A LUN (block storage) type storage resource, which may be a LUN in a consistency group, a standalone LUN, or a VMWare VMFS LUN. Management of LUNs is performed via the storageResource object.  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/lun.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/lun/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the LUN.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "health",
+        "type": "health",
+        "description": "Health information for the LUN, as defined by the health resource type.  ",
+        "displayValue": "health"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "description": "Name of the LUN.  ",
+        "displayValue": "name"
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "description": "Description of the LUN.  ",
+        "displayValue": "description"
+      },
+      {
+        "name": "type",
+        "type": "LUNTypeEnum",
+        "description": "Type of the LUN.  ",
+        "displayValue": "type"
+      },
+      {
+        "name": "sizeTotal",
+        "type": "Integer",
+        "description": "LUN size that the system presents to the host or end user.  ",
+        "displayValue": "sizeTotal"
+      },
+      {
+        "name": "sizeUsed",
+        "type": "Integer",
+        "description": "Used size is not applicable to LUN and this value is not set.  ",
+        "displayValue": "sizeUsed"
+      },
+      {
+        "name": "sizeAllocated",
+        "type": "Integer",
+        "description": "Size of space actually allocated in the pool for the LUN: \u003Cul> \u003Cli>For thin-provisioned LUNs this as a rule is less than the sizeTotal attribute until the LUN is not fully populated with user data.\u003C/li> \u003Cli>For not thin-provisioned LUNs this is approximately equal to the sizeTotal.\u003C/li> \u003C/ul>  ",
+        "displayValue": "sizeAllocated"
+      },
+      {
+        "name": "compressionSizeSaved",
+        "type": "Integer",
+        "description": "Storage element saved space by inline compression  ",
+        "displayValue": "compressionSizeSaved"
+      },
+      {
+        "name": "compressionPercent",
+        "type": "Integer",
+        "description": "Percent compression rate  ",
+        "displayValue": "compressionPercent"
+      },
+      {
+        "name": "perTierSizeUsed",
+        "type": "List\u003CInteger>",
+        "description": "Sizes of space allocations by the LUN on the tiers of multi-tier storage pool. This list will have the same length as the tiers list on this LUN's pool, and the entries will correspond to those tiers. \u003Cbr> Multi-tier storage pools can be created on a system with the FAST VP license installed.  ",
+        "displayValue": "perTierSizeUsed"
+      },
+      {
+        "name": "isThinEnabled",
+        "type": "Boolean",
+        "description": "Indicates whether thin provisioning is enabled. \u003Cul> \u003Cli>true - The LUN is thin provisioned.\u003C/li> \u003Cli>false - The LUN is not thin provisioned.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isThinEnabled"
+      },
+      {
+        "name": "isCompressionEnabled",
+        "type": "Boolean",
+        "description": "True if compression is enabled  ",
+        "displayValue": "isCompressionEnabled"
+      },
+      {
+        "name": "storageResource",
+        "type": "storageResource",
+        "description": "The storage resource with which LUN is associated.  ",
+        "displayValue": "storageResource"
+      },
+      {
+        "name": "pool",
+        "type": "pool",
+        "description": "The pool in which the LUN is allocated.  ",
+        "displayValue": "pool"
+      },
+      {
+        "name": "wwn",
+        "type": "String",
+        "description": "The world wide name of the LUN.  ",
+        "displayValue": "wwn"
+      },
+      {
+        "name": "tieringPolicy",
+        "type": "TieringPolicyEnum",
+        "description": "(Applies if FAST VP is supported on the system and the corresponding license is installed.) FAST VP tiering policy for the LUN.  ",
+        "displayValue": "tieringPolicy"
+      },
+      {
+        "name": "defaultNode",
+        "type": "NodeEnum",
+        "description": "The storage processor that is the default owner of this LUN.  ",
+        "displayValue": "defaultNode"
+      },
+      {
+        "name": "isReplicationDestination",
+        "type": "Boolean",
+        "description": "Indicates whether the LUN is a replication destination. Valid values are: \u003Cul> \u003Cli>true - LUN is a replication destination.\u003C/li> \u003Cli>false - LUN is not a replication destination.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isReplicationDestination"
+      },
+      {
+        "name": "currentNode",
+        "type": "NodeEnum",
+        "description": "The storage processor that is the current owner of this LUN.  ",
+        "displayValue": "currentNode"
+      },
+      {
+        "name": "snapSchedule",
+        "type": "snapSchedule",
+        "description": "Snapshot schedule for the LUN, as defined by the snapSchedule. This value is not set if the LUN is not associated with a snapshot schedule.  ",
+        "displayValue": "snapSchedule"
+      },
+      {
+        "name": "isSnapSchedulePaused",
+        "type": "Boolean",
+        "description": "(Applies if the LUN has an associated snap schedule.) Indicates whether the snapshot schedule for the LUN is paused. Valid values are: \u003Cul> \u003Cli>true - Snapshot schedule for the LUN is paused.\u003C/li> \u003Cli>false - Snapshot schedule for the LUN is active.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isSnapSchedulePaused"
+      },
+      {
+        "name": "ioLimitPolicy",
+        "type": "ioLimitPolicy",
+        "description": "I/O limit policy that applies to the LUN, as defined by the ioLimitPolicy resource type.  ",
+        "displayValue": "ioLimitPolicy"
+      },
+      {
+        "name": "metadataSize",
+        "type": "Integer",
+        "description": "Size of the LUN metadata.  ",
+        "displayValue": "metadataSize"
+      },
+      {
+        "name": "metadataSizeAllocated",
+        "type": "Integer",
+        "description": "Size of pool space allocated for the LUN's metadata.  ",
+        "displayValue": "metadataSizeAllocated"
+      },
+      {
+        "name": "snapWwn",
+        "type": "String",
+        "description": "World Wide Name of the Snap Mount Point.  ",
+        "displayValue": "snapWwn"
+      },
+      {
+        "name": "snapsSize",
+        "type": "Integer",
+        "description": "Size of the LUN snapshots.  ",
+        "displayValue": "snapsSize"
+      },
+      {
+        "name": "snapsSizeAllocated",
+        "type": "Integer",
+        "description": "Size of pool space allocated for snapshots of the LUN.  ",
+        "displayValue": "snapsSizeAllocated"
+      },
+      {
+        "name": "hostAccess",
+        "type": "List\u003CblockHostAccess>",
+        "description": "Host access permissions for the LUN.  ",
+        "displayValue": "hostAccess"
+      },
+      {
+        "name": "snapCount",
+        "type": "Integer",
+        "description": "Number of snapshots of the LUN.  ",
+        "displayValue": "snapCount"
+      }
+    ]
+  }
+}

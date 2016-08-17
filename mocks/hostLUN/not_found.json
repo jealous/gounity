@@ -1,0 +1,11 @@
+{
+  "@base": "https://10.244.223.61/api/types/hostLUN/instances?filter=host eq \"Host_5\" and lun eq \"sv_99\"&fields=id,type,hlu,isReadOnly,isDefaultSnap,lun.id,host.id,snap.id&per_page=2000&compact=true",
+  "updated": "2016-08-30T11:09:07.778Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": []
+}

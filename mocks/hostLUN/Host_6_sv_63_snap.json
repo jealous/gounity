@@ -1,0 +1,27 @@
+{
+  "@base": "https://10.244.223.61/api/types/hostLUN/instances?filter=host eq \"Host_5\" and lun eq \"sv_2\"&fields=id,type,hlu,isReadOnly,isDefaultSnap,lun.id,host.id,snap.id&per_page=2000&compact=true",
+  "updated": "2016-08-30T10:51:47.548Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "Host_6_sv_63_prod",
+        "type": 1,
+        "hlu": 3,
+        "isReadOnly": false,
+        "isDefaultSnap": false,
+        "host": {
+          "id": "Host_6"
+        },
+        "lun": {
+          "id": "sv_63"
+        }
+      }
+    }
+  ]
+}

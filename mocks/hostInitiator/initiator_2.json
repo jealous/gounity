@@ -1,0 +1,45 @@
+{
+  "@base": "https://10.244.223.61/api/types/hostInitiator/instances?filter=initiatorId eq \"20:00:00:90:FA:53:41:40:10:00:00:90:FA:53:41:40\"&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,iscsiType,isBound,sourceType,paths.id,parentHost.id&per_page=2000&compact=true",
+  "updated": "2016-08-30T02:29:16.477Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "HostInitiator_2",
+        "operationalStatus": [
+          2
+        ],
+        "type": 1,
+        "sourceType": 3,
+        "instanceId": "root/emc:EMC_UEM_HostInitiatorLeaf%InstanceID=HostInitiator_2",
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "initiatorId": "20:00:00:90:FA:53:41:40:10:00:00:90:FA:53:41:40",
+        "isIgnored": false,
+        "nodeWWN": "20:00:00:90:FA:53:41:40",
+        "portWWN": "10:00:00:90:FA:53:41:40",
+        "isChapSecretEnabled": false,
+        "parentHost": {
+          "id": "Host_2"
+        },
+        "paths": [
+          {
+            "id": "HostInitiator_2_02:00:00:04"
+          }
+        ]
+      }
+    }
+  ]
+}

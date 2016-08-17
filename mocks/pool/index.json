@@ -1,0 +1,24 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/pool?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/pool/instances?compact=true&fields=id,health,name,description,storageResourceType,raidType,sizeFree,sizeTotal,sizeUsed,compressionSizeSaved,compressionPercent,sizeSubscribed,alertThreshold,hasCompressionEnabledLuns,isFASTCacheEnabled,tiers,creationTime,isEmpty,poolFastVP,isHarvestEnabled,harvestState,isSnapHarvestEnabled,poolSpaceHarvestHighThreshold,poolSpaceHarvestLowThreshold,snapSpaceHarvestHighThreshold,snapSpaceHarvestLowThreshold,metadataSizeSubscribed,snapSizeSubscribed,metadataSizeUsed,snapSizeUsed,rebalanceProgress",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/types/pool/instances?compact=true&fields=id,health,name,description,storageResourceType,raidType,sizeFree,sizeTotal,sizeUsed,compressionSizeSaved,compressionPercent,sizeSubscribed,alertThreshold,hasCompressionEnabledLuns,isFASTCacheEnabled,tiers,creationTime,isEmpty,poolFastVP,isHarvestEnabled,harvestState,isSnapHarvestEnabled,poolSpaceHarvestHighThreshold,poolSpaceHarvestLowThreshold,snapSpaceHarvestHighThreshold,snapSpaceHarvestLowThreshold,metadataSizeSubscribed,snapSizeSubscribed,metadataSizeUsed,snapSizeUsed,rebalanceProgress&filter=name eq \"perfpool1132\"",
+      "response": "perfpool1132.json"
+    },
+    {
+      "url": "/api/types/pool/instances?compact=true&fields=id,health,name,description,storageResourceType,raidType,sizeFree,sizeTotal,sizeUsed,compressionSizeSaved,compressionPercent,sizeSubscribed,alertThreshold,hasCompressionEnabledLuns,isFASTCacheEnabled,tiers,creationTime,isEmpty,poolFastVP,isHarvestEnabled,harvestState,isSnapHarvestEnabled,poolSpaceHarvestHighThreshold,poolSpaceHarvestLowThreshold,snapSpaceHarvestHighThreshold,snapSpaceHarvestLowThreshold,metadataSizeSubscribed,snapSizeSubscribed,metadataSizeUsed,snapSizeUsed,rebalanceProgress&filter=name eq \"notFound\"",
+      "response": "notFound.json"
+    },
+    {
+      "url": "/api/instances/pool/pool_1?compact=true&fields=id,health,name,description,storageResourceType,raidType,sizeFree,sizeTotal,sizeUsed,compressionSizeSaved,compressionPercent,sizeSubscribed,alertThreshold,hasCompressionEnabledLuns,isFASTCacheEnabled,tiers,creationTime,isEmpty,poolFastVP,isHarvestEnabled,harvestState,isSnapHarvestEnabled,poolSpaceHarvestHighThreshold,poolSpaceHarvestLowThreshold,snapSpaceHarvestHighThreshold,snapSpaceHarvestLowThreshold,metadataSizeSubscribed,snapSizeSubscribed,metadataSizeUsed,snapSizeUsed,rebalanceProgress",
+      "response": "pool_1.json"
+    }
+  ]
+}

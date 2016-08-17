@@ -1,0 +1,290 @@
+{
+  "content": {
+    "name": "host",
+    "description": "Information about host configuration on a storage system. A host's configuration is the logical connection through which the host or application can access storage resources. \u003Cbr/> \u003Cbr/>  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/host.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/host/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the host instance.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "health",
+        "type": "health",
+        "description": "Health information for the host, as defined by the health resource type.  ",
+        "displayValue": "health"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "description": "Host name: \u003Cul> \u003Cli>For an automatically-managed ESX server through vCenter, this is the display name in the vCenter GUI.\u003C/li> \u003Cli>For a manually-created host, this is the host name entered by the user.\u003C/li> \u003C/ul>  ",
+        "displayValue": "name"
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "description": "Host description.  ",
+        "displayValue": "description"
+      },
+      {
+        "name": "type",
+        "type": "HostTypeEnum",
+        "description": "Type of host configuration.  ",
+        "displayValue": "type"
+      },
+      {
+        "name": "osType",
+        "type": "String",
+        "description": "Operating system running on the host.  ",
+        "displayValue": "osType"
+      },
+      {
+        "name": "hostUUID",
+        "type": "String",
+        "description": "(Applies to VCenter server and ESX host configurations only.) Universal Unique Identifier (UUID) of the host.  ",
+        "displayValue": "hostUUID"
+      },
+      {
+        "name": "hostPushedUUID",
+        "type": "String",
+        "description": "(Applies to VCenter server and ESX host configurations only.) Pushed UUID of the host.  ",
+        "displayValue": "hostPushedUUID"
+      },
+      {
+        "name": "hostPolledUUID",
+        "type": "String",
+        "description": "(Applies to VCenter server and ESX host configurations only.) Polled UUID of the host.  ",
+        "displayValue": "hostPolledUUID"
+      },
+      {
+        "name": "lastPollTime",
+        "type": "DateTime",
+        "description": "(Applies to hosts on ESX servers only.) Indicates the date and time when the storage array received the host configuration data from the ESX server.  ",
+        "displayValue": "lastPollTime"
+      },
+      {
+        "name": "autoManageType",
+        "type": "HostManageEnum",
+        "description": "Indicates how the host is managed.  ",
+        "displayValue": "autoManageType"
+      },
+      {
+        "name": "registrationType",
+        "type": "HostRegistrationTypeEnum",
+        "description": "Indicates how initiators are registered to the host.  ",
+        "displayValue": "registrationType"
+      },
+      {
+        "name": "hostContainer",
+        "type": "hostContainer",
+        "description": "(Applies to VCenter server and ESX host configurations only.) Identifier of the parent host container, as defined by the hostContainer resource type.  ",
+        "displayValue": "hostContainer"
+      },
+      {
+        "name": "fcHostInitiators",
+        "type": "List\u003ChostInitiator>",
+        "description": "Identifiers of the Fibre Channel initiators associated with the host, as defined by the hostInitiator resource type.  ",
+        "displayValue": "fcHostInitiators"
+      },
+      {
+        "name": "iscsiHostInitiators",
+        "type": "List\u003ChostInitiator>",
+        "description": "Identifiers of the iSCSI initiators associated with the host, as defined by the hostInitiator resource type.  ",
+        "displayValue": "iscsiHostInitiators"
+      },
+      {
+        "name": "hostIPPorts",
+        "type": "List\u003ChostIPPort>",
+        "description": "Identifiers of the network ports associated with the host, as defined by the hostIPPort resource type.  ",
+        "displayValue": "hostIPPorts"
+      },
+      {
+        "name": "storageResources",
+        "type": "List\u003CstorageResource>",
+        "description": "Identifiers of the storage resources used by the host, as defined by the storageResource resource type.  ",
+        "displayValue": "storageResources"
+      },
+      {
+        "name": "hostLUNs",
+        "type": "List\u003ChostLUN>",
+        "description": "(Applies to iSCSI and Fibre Channel host configurations only.) Identifiers of the LUNs accessible by the host, as defined by the hostLUN resource type.  ",
+        "displayValue": "hostLUNs"
+      },
+      {
+        "name": "tenant",
+        "type": "tenant",
+        "description": "Information about the tenant to which the host is assigned.  ",
+        "displayValue": "tenant"
+      },
+      {
+        "name": "datastores",
+        "type": "List\u003Cdatastore>",
+        "description": "The datastores associated with the current host",
+        "displayValue": "datastores"
+      },
+      {
+        "name": "hostVVolDatastore",
+        "type": "List\u003ChostVVolDatastore>",
+        "description": "The hostVVolDatastores associated with the current host",
+        "displayValue": "hostVVolDatastore"
+      },
+      {
+        "name": "vms",
+        "type": "List\u003Cvm>",
+        "description": "The vms associated with the current host",
+        "displayValue": "vms"
+      }
+    ],
+    "actions": [
+      {
+        "rel": "create",
+        "description": "Create a host configuration.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "type",
+            "type": "HostTypeEnum",
+            "direction": 0,
+            "description": "Type of host configuration.  ",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "Host name.  ",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "direction": 0,
+            "description": "Host description.  ",
+            "optional": true
+          },
+          {
+            "name": "osType",
+            "type": "String",
+            "direction": 0,
+            "description": "Operating system running on the host.  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "tenant",
+            "type": "tenant",
+            "direction": 0,
+            "description": "Tenant with which the host is to be associated.  ",
+            "optional": true
+          },
+          {
+            "name": "id",
+            "type": "host",
+            "direction": 1,
+            "description": "Unique identifier of the new host instance.  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "refresh",
+        "description": "(Applies to ESX host configurations only.) Refresh the retrieval of host configuration information from the ESX server.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "host",
+            "direction": 0,
+            "description": "ESX host to be refreshed.  ",
+            "optional": false
+          },
+          {
+            "name": "doRescan",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to scan the associated hardware when refreshing the ESX host configuration information. Values are: \u003Cul> \u003Cli>true - Rescan associated hardware. This option adds time to the refresh process.\u003C/li> \u003Cli>false - Do not rescan associated hardware.\u003C/li> \u003C/ul>  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "delete",
+        "description": "Delete a host configuration.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "host",
+            "direction": 0,
+            "description": "Unique identifier of the host configuration to delete.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "modifyHostLUNs",
+        "description": "Modify the Host LUN Identifier (HLU) of one or more LUNs accessible by the host. The method takes a list of hostLUNs, so that the HLUs of one or more LUNs can be changed at once, even if the old and new HLUs overlap.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "host",
+            "direction": 0,
+            "description": " ",
+            "optional": false
+          },
+          {
+            "name": "hostLunModifyList",
+            "type": "List\u003ChostLunModify>",
+            "direction": 0,
+            "description": "List of embedded hostLunModify objects. The embedded object has the required hostLUN details to be updated.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "modify",
+        "description": "Modify a host configuration.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "host",
+            "direction": 0,
+            "description": "Unique identifier of the host configuration to modify.  ",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "(Applies to manually-created hosts only.) Host name.  ",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "direction": 0,
+            "description": "Host description.  ",
+            "optional": true
+          },
+          {
+            "name": "osType",
+            "type": "String",
+            "direction": 0,
+            "description": "(Applies to manually-created hosts only.) Operating system running on the host.  ",
+            "optional": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -17,7 +17,8 @@ type Unity interface {
 	Username() string
 }
 
+// New creates a new Unity storage system instance.
 func New(ip, username, password string) (Unity, error) {
-	unity := *lib.NewSystem(ip, username, password)
+	unity := *lib.NewUnity(ip, username, password)
 	return &unity, nil
 }

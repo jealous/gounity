@@ -1,0 +1,67 @@
+{
+  "@base": "https://10.244.223.61/api/types/lun/instances?filter=name eq \"gounity\"&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,isSnapSchedulePaused,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount,snapSchedule.id,storageResource.id,pool.id,ioLimitPolicy.id&per_page=2000&compact=true",
+  "updated": "2016-08-30T10:22:14.348Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "sv_63",
+        "type": 2,
+        "tieringPolicy": 0,
+        "defaultNode": 1,
+        "currentNode": 1,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_VOL_OK"
+          ],
+          "descriptions": [
+            "The LUN is operating normally. No action is required."
+          ]
+        },
+        "name": "gounity",
+        "description": "",
+        "sizeTotal": 1073741824,
+        "sizeAllocated": 0,
+        "compressionSizeSaved": 0,
+        "compressionPercent": 0,
+        "perTierSizeUsed": [
+          2952790016,
+          0,
+          0
+        ],
+        "isThinEnabled": true,
+        "isCompressionEnabled": false,
+        "wwn": "60:06:01:60:15:E0:3A:00:46:51:C5:57:0C:1E:BF:FC",
+        "isReplicationDestination": false,
+        "isSnapSchedulePaused": false,
+        "metadataSize": 3489660928,
+        "metadataSizeAllocated": 2684354560,
+        "snapWwn": "60:06:01:60:15:E0:3A:00:AC:B9:E3:97:C2:B2:42:CD",
+        "snapsSize": 0,
+        "snapsSizeAllocated": 0,
+        "hostAccess": [
+          {
+            "accessMask": 1,
+            "productionAccess": 1,
+            "host": {
+              "id": "Host_7"
+            }
+          }
+        ],
+        "snapCount": 0,
+        "storageResource": {
+          "id": "sv_63"
+        },
+        "pool": {
+          "id": "pool_1"
+        }
+      }
+    }
+  ]
+}

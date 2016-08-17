@@ -1,0 +1,36 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/host?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/host/instances?compact=true&fields=id,health,name,description,type,osType,hostUUID,hostPushedUUID,hostPolledUUID,lastPollTime,autoManageType,registrationType,hostContainer,fcHostInitiators,iscsiHostInitiators,hostIPPorts,storageResources,hostLUNs,tenant,datastores,hostVVolDatastore,vms",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/types/host/instances?compact=true&fields=id,health,name,description,type,osType,hostUUID,hostPushedUUID,hostPolledUUID,lastPollTime,autoManageType,registrationType,hostContainer,fcHostInitiators,iscsiHostInitiators,hostIPPorts,storageResources,hostLUNs,tenant,datastores,hostVVolDatastore,vms&filter=name eq \"gohost\"",
+      "response": "gohost.json"
+    },
+    {
+      "url": "/api/instances/host/Host_6?compact=true&fields=id,health,name,description,type,osType,hostUUID,hostPushedUUID,hostPolledUUID,lastPollTime,autoManageType,registrationType,hostContainer,fcHostInitiators,iscsiHostInitiators,hostIPPorts,storageResources,hostLUNs,tenant,datastores,hostVVolDatastore,vms",
+      "response": "host_6.json"
+    },
+    {
+      "url": "/api/instances/host/Host_12?compact=true",
+      "response": "empty.json"
+    },
+    {
+      "url": "/api/instances/host/Host_7?compact=true",
+      "response": "not_found.json"
+    },
+    {
+      "url": "/api/types/host/instances?compact=true",
+      "body": {
+        "name": "gohost",
+        "type": 1
+      },
+      "response": "create_gohost.json"
+    }
+  ]
+}

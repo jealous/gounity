@@ -1,0 +1,526 @@
+{
+  "content": {
+    "name": "pool",
+    "description": "Information about pools in the storage system. \u003Cbr/> \u003Cbr/> \u003Cb>Creating pools using Quick Start mode\u003C/b> \u003Cbr/> \u003Cbr/> You can use Quick Start mode to create system recommended pools based on the type and availability of disks in the system. In Quick Start mode, the system recommends separate pools for different disk types and uses default RAID configurations for the disks. A pool configured in Quick Start mode has only one tier. \u003Cbr/> \u003Cbr/> Quick Start mode is available when both of these conditions are met: \u003Cul> \u003Cli>No pools exist on the system.\u003C/li> \u003Cli>The system is not licensed for FAST VP or FAST Cache.\u003C/li> \u003C/ul> \u003Cbr/> To create pools using Quick Start mode, follow these steps: \u003Col> \u003Cli>Run POST \u003Cfont color=#0f0f0f>api/types/pool/action/recommendAutoConfiguration. \u003C/font> \u003Cfont color=#0f0f0f>\u003Cbr/>\u003C/font> \u003Cfont color=#0f0f0f>\u003Cbr/>\u003C/font> \u003Cfont color=#0f0f0f>The response body contains a set of poolSetting instances.\u003C/li>\u003C/font> \u003Cfont color=#0f0f0f>\u003Cbr/>\u003C/font> \u003Cfont color=#0f0f0f>\u003Cli value=2>For each poolSetting instance returned in Step 1, run POST /api/types/pool/instances with the following arguments, using values obtained from the poolSetting instance:\u003C/li>\u003C/font> \u003Cul> \u003Cli>addRaidGroupParameters : [{dskGroup : poolSetting.storageConfiguration.possibleStorageConfigurations.diskGroup,\u003C/li> \u003Cli>numDisks : poolSetting.storageConfiguration.possibleStorageConfigurations.raidGroupConfigurations.diskCount,\u003C/li> \u003Cli>raidType : poolSetting.storageConfiguration.raidType,\u003C/li> \u003Cli>stripeWidth : poolSetting.storageConfiguration.possibleStorageConfigurations.raidGroupConfigurations.stripeWidths},...]\u003C/li> \u003C/ul> \u003C/ol> Pool creation examples: \u003Cbr/> Simple pool with one RAID5 4+1: \u003Cbr/> POST /api/types/pool/instances \u003Cbr/> {\"name\" : \"PerformancePool\",\u003Cbr/> \"addRaidGroupParameters\" : [\u003Cbr/> {\"dskGroup\" : {\"id\" : dg_15},\u003Cbr/> \"numDisks\" : 5,\u003Cbr/> \"raidType\" : 1,\u003Cbr/> \"stripeWidth\" : 5}\u003Cbr/> ]\u003Cbr/> }\u003Cbr/> \u003Cbr/> Pool with raid group RAID10 1+1, with storageResourceType parameter: \u003Cbr/> {\"name\" : \"SysDefPool00\",\u003Cbr/> \"description\" : \"The pool is created with parameter storageResourceType\",\u003Cbr/> \"storageResourceType\" : 2,\u003Cbr/> \"addRaidGroupParameters\" : [\u003Cbr/> {\"dskGroup\" : {\"id\" : \"dg_16\"},\u003Cbr/> \"numDisks\" : 2,\u003Cbr/> \"raidType\" : 7,\u003Cbr/> \"stripeWidth\" : 2}\u003Cbr/> ]\u003Cbr/> }\u003Cbr/> \u003Cbr/> \u003Cbr/>  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/pool.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/pool/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the pool instance.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "health",
+        "type": "health",
+        "description": "Health information for the pool, as defined by the health resource type.  ",
+        "displayValue": "health"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "description": "Pool name, unique in the storage system.  ",
+        "displayValue": "name"
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "description": "Pool description.  ",
+        "displayValue": "description"
+      },
+      {
+        "name": "storageResourceType",
+        "type": "StorageResourceTypeEnum",
+        "description": "Storage resource type for which the pool was primary created  ",
+        "displayValue": "storageResourceType"
+      },
+      {
+        "name": "raidType",
+        "type": "RaidTypeEnum",
+        "description": "RAID type with which the pool is configured. A value of Mixed indicates that the pool consists of multiple RAID types.  ",
+        "displayValue": "raidType"
+      },
+      {
+        "name": "sizeFree",
+        "type": "Integer",
+        "description": "Size of free space available in the pool.  ",
+        "displayValue": "sizeFree"
+      },
+      {
+        "name": "sizeTotal",
+        "type": "Integer",
+        "description": "Total size of space (used space plus free space) in the pool.  ",
+        "displayValue": "sizeTotal"
+      },
+      {
+        "name": "sizeUsed",
+        "type": "Integer",
+        "description": "Size of space used by the storage resources allocated in the pool.  ",
+        "displayValue": "sizeUsed"
+      },
+      {
+        "name": "compressionSizeSaved",
+        "type": "Integer",
+        "description": "Amount of space saved for the pool by inline compression  ",
+        "displayValue": "compressionSizeSaved"
+      },
+      {
+        "name": "compressionPercent",
+        "type": "Integer",
+        "description": "Percent compression rate  ",
+        "displayValue": "compressionPercent"
+      },
+      {
+        "name": "sizeSubscribed",
+        "type": "Integer",
+        "description": "Size of space requested by the storage resources allocated in the pool for possible future allocations. If this value is greater than the total size of the pool, the pool is considered oversubscribed.  ",
+        "displayValue": "sizeSubscribed"
+      },
+      {
+        "name": "alertThreshold",
+        "type": "Integer",
+        "description": "Threshold at which the system generates notifications about the size of free space in the pool, specified as a percentage. \u003Cp/> This threshold is based on the percentage of allocated storage in the pool compared to the total pool size.  ",
+        "displayValue": "alertThreshold"
+      },
+      {
+        "name": "hasCompressionEnabledLuns",
+        "type": "Boolean",
+        "description": "(Applies if Inline Compression is supported on the system and the corresponding license is installed.) Indicates whether the pool has any Lun that has inline compression ever turned on; Values are. \u003Cul> \u003Cli>true - Pool consist lun(s) that has ever had inline compression enabled. \u003C/li> \u003Cli>false - Pool consist no lun that has ever had inline compression enabled.\u003C/li> \u003C/ul>  ",
+        "displayValue": "hasCompressionEnabledLuns"
+      },
+      {
+        "name": "isFASTCacheEnabled",
+        "type": "Boolean",
+        "description": "(Applies if FAST Cache is supported on the system and the corresponding license is installed.) Indicates whether the FAST Cache is enabled for the pool. Values are: \u003Cul> \u003Cli>true - FAST Cache is enabled for the pool.\u003C/li> \u003Cli>false - FAST Cache is disabled for the pool.\u003C/li> FAST Cache is created from Flash SAS disks and applied only to RAID groups created of SAS and NL-SAS hard disks. If the pool is populated by purely Flash disks the FAST Cache is not enabled. \u003C/ul>  ",
+        "displayValue": "isFASTCacheEnabled"
+      },
+      {
+        "name": "tiers",
+        "type": "List\u003CpoolTier>",
+        "description": "Tiers in the pool, as defined by the poolTier resource type.  ",
+        "displayValue": "tiers"
+      },
+      {
+        "name": "creationTime",
+        "type": "DateTime",
+        "description": "Date and time when the pool was created.  ",
+        "displayValue": "creationTime"
+      },
+      {
+        "name": "isEmpty",
+        "type": "Boolean",
+        "description": "Indicates whether the pool is unused; that is, whether it has no storage resources provisioned from it. Values are: \u003Cul> \u003Cli>true - Pool is unused. \u003C/li> \u003Cli>false - Pool is used..\u003C/li> \u003C/ul>  ",
+        "displayValue": "isEmpty"
+      },
+      {
+        "name": "poolFastVP",
+        "type": "poolFASTVP",
+        "description": "(Applies if FAST VP is supported on the system and the corresponding license is installed.) FAST VP information for the pool, as defined by the poolFastVP resource type. Pool is not eligible to be a multi-tier pool until FAST VP license installed.  ",
+        "displayValue": "poolFastVP"
+      },
+      {
+        "name": "isHarvestEnabled",
+        "type": "Boolean",
+        "description": "Indicates whether the automatic deletion of snapshots through pool space harvesting is enabled for the pool. See properties poolSpaceHarvestHighThreshold and poolSpaceHarvestLowThreshold. Values are: \u003Cul> \u003Cli>true - Automatic deletion of snapshots through pool harvesting is enabled for the pool.\u003C/li> \u003Cli>false - Automatic deletion of snapshots through pool harvesting is disabled for the pool.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isHarvestEnabled"
+      },
+      {
+        "name": "harvestState",
+        "type": "UsageHarvestStateEnum",
+        "description": "Current state of pool space harvesting.  ",
+        "displayValue": "harvestState"
+      },
+      {
+        "name": "isSnapHarvestEnabled",
+        "type": "Boolean",
+        "description": "Indicates whether the automatic deletion of snapshots through snapshot harvesting is enabled for the pool. See properties snapSpaceHarvestHighThreshold and snapSpaceHarvestLowThreshold. Values are: \u003Cul> \u003Cli>true - Automatic deletion of snapshots through snapshot harvesting is enabled for the pool.\u003C/li> \u003Cli>false - Automatic deletion of snapshots through snapshot harvesting is disabled for the pool.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isSnapHarvestEnabled"
+      },
+      {
+        "name": "poolSpaceHarvestHighThreshold",
+        "type": "Float",
+        "description": "(Applies when the automatic deletion of snapshots based on pool space usage is enabled for the system and pool.) \u003Cbr/> \u003Cbr/> Pool used space high threshold at which the system automatically starts to delete snapshot objects in the pool, specified as a percentage with .01% granularity. \u003Cbr/> \u003Cbr/> This threshold is based on the percentage of space used in the pool by all types of objects compared to the total pool size. When the percentage of used space reaches this threshold, the system starts to automatically delete snapshot objects in the pool, until a low threshold (see poolSpaceHarvestLowThreshold) is reached.  ",
+        "displayValue": "poolSpaceHarvestHighThreshold"
+      },
+      {
+        "name": "poolSpaceHarvestLowThreshold",
+        "type": "Float",
+        "description": "(Applies when the automatic deletion of snapshots based on pool space usage is enabled for the system and pool.) \u003Cbr/> \u003Cbr/> Pool used space low threshold under which the system stops automatically deleting snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr/> \u003Cbr/> This threshold is based on the percentage of space used in the pool by all types of objects compared to the total pool size. When the percentage of used space in the pool falls below this threshold, the system stops the automatic deletion of snapshot objects in the pool, until a high threshold (see poolSpaceHarvestHighThreshold) is reached again.  ",
+        "displayValue": "poolSpaceHarvestLowThreshold"
+      },
+      {
+        "name": "snapSpaceHarvestHighThreshold",
+        "type": "Float",
+        "description": "(Applies when the automatic deletion of snapshots based on snapshot space usage is enabled for the system and pool.) \u003Cbr/> \u003Cbr/> Space used by snapshot objects high threshold at which the system automatically starts to delete snapshot objects in the pool, specified as a percentage with .01% granularity. \u003Cbr/> \u003Cbr/> This threshold is based on the percentage of space used in the pool by snapshot objects only compared to the total pool size. When the percentage of space used by snapshots reaches this threshold, the system automatically starts to delete snapshots in the pool, until a low threshold (see snapSpaceHarvestLowThreshold) is reached.  ",
+        "displayValue": "snapSpaceHarvestHighThreshold"
+      },
+      {
+        "name": "snapSpaceHarvestLowThreshold",
+        "type": "Float",
+        "description": "(Applies when the automatic deletion of snapshots based on snapshot space usage is enabled for the system and pool.) \u003Cbr/> \u003Cbr/> Space used by snapshot objects low threshold under which the system automatically stops deleting snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr/> \u003Cbr/> This threshold is based on the percentage of space used in the pool by snapshots only compared to the total pool size. When the percentage of pool space used by snapshot objects falls below this threshold, the system automatically stops deletion of snapshots in the pool, until a high threshold (see snapSpaceHarvestHighThreshold) is reached again.  ",
+        "displayValue": "snapSpaceHarvestLowThreshold"
+      },
+      {
+        "name": "metadataSizeSubscribed",
+        "type": "Integer",
+        "description": "Size of pool space subscribed for metadata.  ",
+        "displayValue": "metadataSizeSubscribed"
+      },
+      {
+        "name": "snapSizeSubscribed",
+        "type": "Integer",
+        "description": "Size of pool space subscribed for snapshots.  ",
+        "displayValue": "snapSizeSubscribed"
+      },
+      {
+        "name": "metadataSizeUsed",
+        "type": "Integer",
+        "description": "Size of pool space used by metadata.  ",
+        "displayValue": "metadataSizeUsed"
+      },
+      {
+        "name": "snapSizeUsed",
+        "type": "Integer",
+        "description": "Size of pool space used by snapshots.  ",
+        "displayValue": "snapSizeUsed"
+      },
+      {
+        "name": "rebalanceProgress",
+        "type": "Integer",
+        "description": "(Applies if FAST VP is supported on the system and the corresponding license is installed.) Percent of work completed for data rebalancing.  ",
+        "displayValue": "rebalanceProgress"
+      }
+    ],
+    "actions": [
+      {
+        "rel": "stopRelocation",
+        "description": "(Applies if FAST VP is supported on the system and the corresponding license is installed.) Stop data relocation on the pool.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "state": 2,
+            "name": "id",
+            "type": "pool",
+            "direction": 0,
+            "description": "Pool instance on which to stop data relocation, as defined by the pool resource type.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "startRelocation",
+        "description": "(Applies if FAST VP is supported on the system and the corresponding license is installed.) Initiate data relocation on the pool.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "state": 2,
+            "name": "id",
+            "type": "pool",
+            "direction": 0,
+            "description": "Pool instance on which to start data relocation, as defined by the pool resource type.  ",
+            "optional": false
+          },
+          {
+            "state": 2,
+            "name": "endTime",
+            "type": "DateTime",
+            "direction": 0,
+            "description": "Date and time at which to stop the data relocation operation.  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "relocationRate",
+            "type": "FastVPRelocationRateEnum",
+            "direction": 0,
+            "description": "Data relocation rate.  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "modify",
+        "description": "Modifies the existing pool: allows to expand pool capacity and/or modify different parameters of the pool.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "pool",
+            "direction": 0,
+            "description": "Unique identifier of the pool instance to modify.  ",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "Pool new name.  ",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "direction": 0,
+            "description": "Pool new description.  ",
+            "optional": true
+          },
+          {
+            "name": "storageResourceType",
+            "type": "StorageResourceTypeEnum",
+            "direction": 0,
+            "description": "intended storage resource type.  ",
+            "optional": true
+          },
+          {
+            "name": "addRaidGroupParameters",
+            "type": "List\u003CraidGroupParameters>",
+            "direction": 0,
+            "description": "Parameters to add RAID groups to the pool (disk group, number of disks, RAID level, stripe length). If the expansion of the single-tier pool makes it multi-tier pool then FAST VP license is required to be installed on the system.  ",
+            "optional": true
+          },
+          {
+            "name": "addPoolUnitParameters",
+            "type": "List\u003CpoolUnitParameters>",
+            "direction": 0,
+            "description": "Pool capacity units (now Virtual Disks only) with associated parameters to add to the pool without RAID protection.  ",
+            "optional": true
+          },
+          {
+            "name": "alertThreshold",
+            "type": "Integer",
+            "direction": 0,
+            "description": " ",
+            "optional": true
+          },
+          {
+            "name": "poolSpaceHarvestHighThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on pool space usage is enabled for the system and pool.) \u003Cbr> \u003Cbr> Pool used space high threshold at which the system will automatically starts to delete snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of space used in the pool by all types of objects compared to the total pool size. When the percentage of used space reaches this threshold, the system automatically starts to delete snapshots in the pool, until a low threshold is reached.  ",
+            "optional": true
+          },
+          {
+            "name": "poolSpaceHarvestLowThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on pool space usage is enabled for the system and pool.) \u003Cbr> \u003Cbr> Pool used space low threshold under which the system will automatically stop deletion of snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of space in the pool used by all types of obejcts compared to the total pool size. When the percentage of used space in the pool falls below this threshold, the system stops the automatic deletion of snapshots in the pool, until a high threshold is reached again.  ",
+            "optional": true
+          },
+          {
+            "name": "snapSpaceHarvestHighThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on snapshot space usage is enabled for the system and pool.) \u003Cbr> \u003Cbr> Snapshot used space high threshold at which the system automatically starts to delete snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of pool space used by snapshot objects only compared with the total pool size. When the percentage of space used by snapshots reaches this threshold, the system automatically starts to delete snapshots in the pool, until a low threshold is reached.  ",
+            "optional": true
+          },
+          {
+            "name": "snapSpaceHarvestLowThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on snapshot space usage is enabled for the system and the pool.) \u003Cbr> \u003Cbr> Snapshot used space low threshold below which the system will stop automatically deleting snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of space used by snapshot objects only as compared to the total pool size. When the percentage of space used by snapshots falls below this threshold, the system stops automatically deleting snapshots in the pool, until a high threshold is reached again.  ",
+            "optional": true
+          },
+          {
+            "name": "isHarvestEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to enable pool space harvesting (the automatic deletion of snapshots based on pool space usage) for the pool. Values are: \u003Cul> \u003Cli>true - Enable pool harvesting for the pool.\u003C/li> \u003Cli>false - Disable pool harvesting for the pool.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          },
+          {
+            "name": "isSnapHarvestEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to enable snapshot harvesting (the automatic deletion of snapshots based on snapshot space usage) for the pool. Values are: \u003Cul> \u003Cli>true - Enable snapshot harvesting for the pool.\u003C/li> \u003Cli>false - Disable snapshot harvesting for the pool.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "isFASTCacheEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "(Applies if a FAST Cache license is installed on the system.) Indicates whether to enable the FAST Cache for the pool. Values are: \u003Cul>  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "isFASTVpScheduleEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "(Applies when a FAST VP license is installed on the system.) Indicates whether to enable scheduled data relocations for the pool. Values are: \u003Cul> \u003Cli>true - Enable scheduled data relocations for the pool.\u003C/li> \u003Cli>false - Disable scheduled data relocations for the pool.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "delete",
+        "description": "Delete a pool.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "pool",
+            "direction": 0,
+            "description": "Storage pool instance to delete.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "recommendAutoConfiguration",
+        "description": "Recommend a list of pool configurations for the storage system.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "maxDisks",
+            "type": "Integer",
+            "direction": 0,
+            "description": " ",
+            "optional": true
+          },
+          {
+            "name": "maxCapacity",
+            "type": "Integer",
+            "direction": 0,
+            "description": " ",
+            "optional": true
+          },
+          {
+            "name": "isAllDisks",
+            "type": "Boolean",
+            "direction": 0,
+            "description": " ",
+            "optional": true
+          },
+          {
+            "name": "poolConfigurations",
+            "type": "List\u003CpoolConfiguration>",
+            "direction": 1,
+            "description": "The list of recommended pool configurations, as defined by the poolSetting type.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "create",
+        "description": "Create a new pool.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "Pool name.  ",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "direction": 0,
+            "description": "Pool description.  ",
+            "optional": true
+          },
+          {
+            "name": "storageResourceType",
+            "type": "StorageResourceTypeEnum",
+            "direction": 0,
+            "description": "intended storage resource type. Valid values from 1 to 4 only.  ",
+            "optional": true
+          },
+          {
+            "name": "addRaidGroupParameters",
+            "type": "List\u003CraidGroupParameters>",
+            "direction": 0,
+            "description": "Parameters to add RAID groups to the pool (disk group, number of disks, RAID level, stripe length: see object raidGroupParameters). To create a pool with disks of different type (Flash, SAS, NL-SAS) FAST VP license is required.  ",
+            "optional": true
+          },
+          {
+            "name": "addPoolUnitParameters",
+            "type": "List\u003CpoolUnitParameters>",
+            "direction": 0,
+            "description": "Pool capacity units (now Virtual Disks only, see virtualDisk object) with associated parameters to add to the pool without RAID protection.  ",
+            "optional": true
+          },
+          {
+            "name": "alertThreshold",
+            "type": "Integer",
+            "direction": 0,
+            "description": "Threshold at which the system will generate alerts about the free space in the pool, specified as a percentage. \u003Cbr> \u003Cbr> This threshold is based on the percentage of allocated storage in the pool compared to the total pool size.  ",
+            "optional": true
+          },
+          {
+            "name": "poolSpaceHarvestHighThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on pool space usage is enabled for the system and pool.) \u003Cbr> \u003Cbr> Pool used space high threshold at which the system will automatically starts to delete snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of space used in the pool by all types of objects compared to the total pool size. When the percentage of used space reaches this threshold, the system automatically starts to delete snapshots in the pool, until a low threshold is reached.  ",
+            "optional": true
+          },
+          {
+            "name": "poolSpaceHarvestLowThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on pool space usage is enabled for the system and pool.) \u003Cbr> \u003Cbr> Pool used space low threshold under which the system will automatically stop deletion of snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of space in the pool used by all types of obejcts compared to the total pool size. When the percentage of used space in the pool falls below this threshold, the system stops the automatic deletion of snapshots in the pool, until a high threshold is reached again.  ",
+            "optional": true
+          },
+          {
+            "name": "snapSpaceHarvestHighThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on snapshot space usage is enabled for the system and pool.) \u003Cbr> \u003Cbr> Snapshot used space high threshold at which the system automatically starts to delete snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of pool space used by snapshot objects only compared with the total pool size. When the percentage of space used by snapshots reaches this threshold, the system automatically starts to delete snapshots in the pool, until a low threshold is reached.  ",
+            "optional": true
+          },
+          {
+            "name": "snapSpaceHarvestLowThreshold",
+            "type": "Float",
+            "direction": 0,
+            "description": "(Applies when the automatic deletion of snapshots based on snapshot space usage is enabled for the system and the pool.) \u003Cbr> \u003Cbr> Snapshot used space low threshold below which the system will stop automatically deleting snapshots in the pool, specified as a percentage with .01% granularity. \u003Cbr> \u003Cbr> This threshold is based on the percentage of space used by snapshot objects only as compared to the total pool size. When the percentage of space used by snapshots falls below this threshold, the system stops automatically deleting snapshots in the pool, until a high threshold is reached again.  ",
+            "optional": true
+          },
+          {
+            "name": "isHarvestEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to enable pool space harvesting (the automatic deletion of snapshots based on pool space usage) for the pool. Values are: \u003Cul> \u003Cli>true - Enable pool harvesting for the pool.\u003C/li> \u003Cli>false - Disable pool harvesting for the pool.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          },
+          {
+            "name": "isSnapHarvestEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to enable snapshot harvesting (the automatic deletion of snapshots based on snapshot space usage) for the pool. Values are: \u003Cul> \u003Cli>true - Enable snapshot harvesting for the pool.\u003C/li> \u003Cli>false - Disable snapshot harvesting for the pool.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "isFASTCacheEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "(Applies if a FAST Cache license is installed on the system.) Indicates whether to enable the FAST Cache for the pool. Values are: \u003Cul> \u003Cli>true - FAST Cache will be enabled for this pool.\u003C/li> \u003Cli>false - FAST Cache will be disabled for this pool.\u003C/li> \u003C/ul> Only RAID groups created of SAS and NL-SAS hard disks are eligible for FAST Cache. If the pool is populated by only Flash disks this option is not allowed.  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "isFASTVpScheduleEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "(Applies when a FAST VP license is installed on the system.) Indicates whether to enable scheduled data relocations for the pool. Values are: \u003Cul> \u003Cli>true - Enable scheduled data relocations for the pool.\u003C/li> \u003Cli>false - Disable scheduled data relocations for the pool.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          },
+          {
+            "name": "id",
+            "type": "pool",
+            "direction": 1,
+            "description": "Output parameter for the created pool id. The pool object with this id may not exist at the moment of this method complete because this method only launches background process called Job which is actually creating the pool.  ",
+            "optional": false
+          }
+        ]
+      }
+    ]
+  }
+}

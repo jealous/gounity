@@ -1,0 +1,11 @@
+{
+  "@base": "https://10.244.223.61/api/types/pool/instances?filter=name eq \"notFound\"&fields=id,health,name,description,storageResourceType,raidType,sizeFree,sizeTotal,sizeUsed,compressionSizeSaved,compressionPercent,sizeSubscribed,alertThreshold,hasCompressionEnabledLuns,isFASTCacheEnabled,tiers,creationTime,isEmpty,poolFastVP,isHarvestEnabled,harvestState,isSnapHarvestEnabled,poolSpaceHarvestHighThreshold,poolSpaceHarvestLowThreshold,snapSpaceHarvestHighThreshold,snapSpaceHarvestLowThreshold,metadataSizeSubscribed,snapSizeSubscribed,metadataSizeUsed,snapSizeUsed,rebalanceProgress&per_page=2000&compact=true",
+  "updated": "2016-08-19T07:21:32.144Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": []
+}

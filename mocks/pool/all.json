@@ -1,0 +1,209 @@
+{
+  "@base": "https://10.244.223.61/api/types/pool/instances?fields=id,health,name,description,storageResourceType,raidType,sizeFree,sizeTotal,sizeUsed,compressionSizeSaved,compressionPercent,sizeSubscribed,alertThreshold,hasCompressionEnabledLuns,isFASTCacheEnabled,tiers,creationTime,isEmpty,poolFastVP,isHarvestEnabled,harvestState,isSnapHarvestEnabled,poolSpaceHarvestHighThreshold,poolSpaceHarvestLowThreshold,snapSpaceHarvestHighThreshold,snapSpaceHarvestLowThreshold,metadataSizeSubscribed,snapSizeSubscribed,metadataSizeUsed,snapSizeUsed,rebalanceProgress&per_page=2000&compact=true",
+  "updated": "2016-08-19T03:57:09.793Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "pool_1",
+        "raidType": 12,
+        "harvestState": 0,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "perfpool1132",
+        "description": "",
+        "sizeFree": 1365799600128,
+        "sizeTotal": 1374657970176,
+        "sizeUsed": 8858370048,
+        "compressionSizeSaved": 0,
+        "compressionPercent": 0,
+        "sizeSubscribed": 63350767616,
+        "alertThreshold": 70,
+        "hasCompressionEnabledLuns": false,
+        "isFASTCacheEnabled": false,
+        "tiers": [
+          {
+            "tierType": 10,
+            "stripeWidth": 2,
+            "raidType": 7,
+            "sizeTotal": 195957882880,
+            "sizeUsed": 8589934592,
+            "sizeFree": 187367948288,
+            "sizeMovingDown": 0,
+            "sizeMovingUp": 0,
+            "sizeMovingWithin": 0,
+            "name": "Extreme Performance",
+            "diskCount": 2,
+            "poolUnits": [
+              {
+                "id": "rg_1"
+              }
+            ]
+          },
+          {
+            "tierType": 20,
+            "stripeWidth": 5,
+            "raidType": 1,
+            "sizeTotal": 1178700087296,
+            "sizeUsed": 268435456,
+            "sizeFree": 1178431651840,
+            "sizeMovingDown": 0,
+            "sizeMovingUp": 0,
+            "sizeMovingWithin": 0,
+            "name": "Performance",
+            "diskCount": 5,
+            "poolUnits": [
+              {
+                "id": "rg_2"
+              }
+            ]
+          },
+          {
+            "tierType": 30,
+            "raidType": 0,
+            "sizeTotal": 0,
+            "sizeUsed": 0,
+            "sizeFree": 0,
+            "sizeMovingDown": 0,
+            "sizeMovingUp": 0,
+            "sizeMovingWithin": 0,
+            "name": "Capacity",
+            "diskCount": 0
+          }
+        ],
+        "creationTime": "2016-08-04T05:41:21.000Z",
+        "isEmpty": false,
+        "poolFastVP": {
+          "status": 3,
+          "relocationRate": 2,
+          "type": 2,
+          "isScheduleEnabled": true,
+          "relocationDurationEstimate": "00:00:00.000",
+          "sizeMovingDown": 0,
+          "sizeMovingUp": 0,
+          "sizeMovingWithin": 0,
+          "percentComplete": 0,
+          "dataRelocated": 0,
+          "lastStartTime": "2016-08-18T22:00:00.000Z",
+          "lastEndTime": "2016-08-19T06:00:00.000Z"
+        },
+        "isHarvestEnabled": true,
+        "isSnapHarvestEnabled": false,
+        "poolSpaceHarvestHighThreshold": 95.0,
+        "poolSpaceHarvestLowThreshold": 85.0,
+        "snapSpaceHarvestHighThreshold": 25.0,
+        "snapSpaceHarvestLowThreshold": 20.0,
+        "metadataSizeSubscribed": 19327352832,
+        "snapSizeSubscribed": 21474836480,
+        "metadataSizeUsed": 7247757312,
+        "snapSizeUsed": 0
+      }
+    },
+    {
+      "content": {
+        "id": "pool_2",
+        "raidType": 7,
+        "harvestState": 0,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_COMPONENT_OK"
+          ],
+          "descriptions": [
+            "The component is operating normally. No action is required."
+          ]
+        },
+        "name": "test",
+        "description": "",
+        "sizeFree": 1968437198848,
+        "sizeTotal": 1968437198848,
+        "sizeUsed": 0,
+        "compressionSizeSaved": 0,
+        "compressionPercent": 0,
+        "sizeSubscribed": 0,
+        "alertThreshold": 70,
+        "hasCompressionEnabledLuns": false,
+        "isFASTCacheEnabled": false,
+        "tiers": [
+          {
+            "tierType": 10,
+            "raidType": 0,
+            "sizeTotal": 0,
+            "sizeUsed": 0,
+            "sizeFree": 0,
+            "sizeMovingDown": 0,
+            "sizeMovingUp": 0,
+            "sizeMovingWithin": 0,
+            "name": "Extreme Performance",
+            "diskCount": 0
+          },
+          {
+            "tierType": 20,
+            "raidType": 0,
+            "sizeTotal": 0,
+            "sizeUsed": 0,
+            "sizeFree": 0,
+            "sizeMovingDown": 0,
+            "sizeMovingUp": 0,
+            "sizeMovingWithin": 0,
+            "name": "Performance",
+            "diskCount": 0
+          },
+          {
+            "tierType": 30,
+            "stripeWidth": 2,
+            "raidType": 7,
+            "sizeTotal": 1968437198848,
+            "sizeUsed": 0,
+            "sizeFree": 1968437198848,
+            "sizeMovingDown": 0,
+            "sizeMovingUp": 0,
+            "sizeMovingWithin": 0,
+            "name": "Capacity",
+            "diskCount": 2,
+            "poolUnits": [
+              {
+                "id": "rg_3"
+              }
+            ]
+          }
+        ],
+        "creationTime": "2016-08-19T03:56:29.000Z",
+        "isEmpty": true,
+        "poolFastVP": {
+          "status": 4,
+          "relocationRate": 2,
+          "type": 2,
+          "isScheduleEnabled": true,
+          "relocationDurationEstimate": "00:00:00.000",
+          "sizeMovingDown": 0,
+          "sizeMovingUp": 0,
+          "sizeMovingWithin": 0,
+          "percentComplete": 0
+        },
+        "isHarvestEnabled": true,
+        "isSnapHarvestEnabled": false,
+        "poolSpaceHarvestHighThreshold": 95.0,
+        "poolSpaceHarvestLowThreshold": 85.0,
+        "snapSpaceHarvestHighThreshold": 25.0,
+        "snapSpaceHarvestLowThreshold": 20.0,
+        "metadataSizeSubscribed": 0,
+        "snapSizeSubscribed": 0,
+        "metadataSizeUsed": 0,
+        "snapSizeUsed": 0
+      }
+    }
+  ]
+}

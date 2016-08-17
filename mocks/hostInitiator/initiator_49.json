@@ -1,0 +1,30 @@
+{
+  "content": {
+    "id": "HostInitiator_49",
+    "type": 1,
+    "sourceType": 3,
+    "health": {
+      "value": 10,
+      "descriptionIds": [
+        "ALRT_INITIATOR_NO_LOGGED_IN_PATH"
+      ],
+      "descriptions": [
+        "The initiator does not have any logged in initiator paths. Check the connection between the initiator and the storage system."
+      ],
+      "resolutionIds": [
+        "initiator_fix_connection"
+      ],
+      "resolutions": [
+        "/help/webhelp/en_US/index.htm?#unity_t_initiator_has_no_logged_in_initiator_path.html"
+      ]
+    },
+    "initiatorId": "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99",
+    "isIgnored": false,
+    "nodeWWN": "AA:BB:CC:DD:EE:FF:00:11",
+    "portWWN": "22:33:44:55:66:77:88:99",
+    "isChapSecretEnabled": false,
+    "parentHost": {
+      "id": "Host_13"
+    }
+  }
+}

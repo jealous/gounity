@@ -1,0 +1,12 @@
+{
+  "@base": "https://10.244.223.61/api/types/hostInitiator/instances?filter=initiatorId eq \"20:00:00:90:FA:53:41:40:10:00:00:90:FA:AA:AA:AA\"&fields=instanceId,id,operationalStatus,health,name,type,initiatorId,isIgnored,nodeWWN,portWWN,chapUserName,isChapSecretEnabled,iscsiType,isBound,sourceType,paths.id,parentHost.id&per_page=2000&compact=true",
+  "updated": "2016-08-30T03:02:10.162Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": []
+}
+

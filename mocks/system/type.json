@@ -1,0 +1,143 @@
+{
+  "content": {
+    "name": "system",
+    "description": "Information about general settings for the storage system.  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/system.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/system/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the system instance.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "health",
+        "type": "health",
+        "description": "Health information for the system, as defined by the health resource type.  ",
+        "displayValue": "health"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "description": "System name.  ",
+        "displayValue": "name"
+      },
+      {
+        "name": "model",
+        "type": "String",
+        "description": "System model name.  ",
+        "displayValue": "model"
+      },
+      {
+        "name": "serialNumber",
+        "type": "String",
+        "description": "System product serial number.  ",
+        "displayValue": "serialNumber"
+      },
+      {
+        "name": "internalModel",
+        "type": "String",
+        "description": "Internal model name for the system.  ",
+        "displayValue": "internalModel"
+      },
+      {
+        "name": "platform",
+        "type": "String",
+        "description": "Hardware platform for the system.  ",
+        "displayValue": "platform"
+      },
+      {
+        "name": "macAddress",
+        "type": "String",
+        "description": "MAC address of the management interface.  ",
+        "displayValue": "macAddress"
+      },
+      {
+        "name": "isEULAAccepted",
+        "type": "Boolean",
+        "description": "Indicates whether the End User License Agreement (EULA) was accepted for an upgrade. Once the EULA is accepted, users can upload product licenses and configure the system, or both. Values are: \u003Cul> \u003Cli>true - EULA was accepted on the system. Once you set this value, you cannot set it to false later on.\u003C/li> \u003Cli>false - EULA was not accepted on the system.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isEULAAccepted"
+      },
+      {
+        "name": "isUpgradeComplete",
+        "type": "Boolean",
+        "description": "Indicates whether an upgrade completed. Operations that change the configuration of the system are not allowed while an upgrade is in progress. \u003Cp/> Values are: \u003Cul> \u003Cli>true - Upgrade completed.\u003C/li> \u003Cli>false - Upgrade did not complete.\u003C/li> \u003C/ul> \u003C/p> \u003Cp/>  ",
+        "displayValue": "isUpgradeComplete"
+      },
+      {
+        "name": "isAutoFailbackEnabled",
+        "type": "Boolean",
+        "description": "Indicates whether the automatic failback of NAS servers is enabled for the system. Values are: \u003Cul> \u003Cli>true - Automatic failback for NAS servers is enabled.\u003C/li> \u003Cli>false - Automatic failback for NAS servers is disabled.\u003C/li> \u003C/ul>  ",
+        "displayValue": "isAutoFailbackEnabled"
+      },
+      {
+        "name": "currentPower",
+        "type": "Integer",
+        "description": "Current amount of power used by the system.  ",
+        "displayValue": "currentPower"
+      },
+      {
+        "name": "avgPower",
+        "type": "Integer",
+        "description": "Average amount of power used by the system. The system uses a one hour window of 30-second samples to determine this value.  ",
+        "displayValue": "avgPower"
+      },
+      {
+        "name": "supportedUpgradeModels",
+        "type": "List\u003CSPModelNameEnum>",
+        "description": "List of all supported models for hardware upgrade.  ",
+        "displayValue": "supportedUpgradeModels"
+      }
+    ],
+    "actions": [
+      {
+        "rel": "failback",
+        "description": "Immediately fail back the storage system to the other storage processor.  ",
+        "documentation": "",
+        "arguments": []
+      },
+      {
+        "rel": "modify",
+        "description": "Modify the system configuration.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "System name.  ",
+            "optional": true
+          },
+          {
+            "name": "isUpgradeCompleted",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to manually mark an upgrade process completed. This value is automatically set to true by the upgrade provider at the end of the upgrade process and back to false by the first GUI request. \u003Cp> Values are: \u003Cul> \u003Cli>true - Mark the upgrade completed.\u003C/li> \u003Cli>false - Do not mark upgrade completed.\u003C/li> \u003C/ul> \u003C/p> \u003Cp> This attribute is required by the GUI to display the upgrade details window on the first login after the upgrade completes. It does not depend on the session. The user who started an upgrade may not see its results, if another user logged in earlier.  ",
+            "optional": true
+          },
+          {
+            "name": "isEulaAccepted",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to accept the End User License Agreement (EULA) for an upgrade. Once the EULA is accepted, users can upload product licenses and configure the system, or both. Values are: \u003Cul> \u003Cli>true - Accept the EULA..\u003C/li> \u003Cli>false - Do not accept the EULA.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "isAutoFailbackEnabled",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether to enable the automatic failback of NAS servers in the system. Values are: \u003Cul> \u003Cli>true - Enable the automatic failback of NAS servers.\u003C/li> \u003Cli>false - Disable the automatic failback of NAS servers.\u003C/li> \u003C/ul>  ",
+            "optional": true
+          }
+        ]
+      }
+    ]
+  }
+}
