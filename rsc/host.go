@@ -68,6 +68,10 @@ func (host *Host) Detach(lun *Lun) error {
 	return err
 }
 
+func (host *Host) GetHostLUNList() *HostLUNList {
+	return GetHostLUNList(host.conn, host, nil)
+}
+
 func (hl *HostListCtor) initList(filter string) RscLister {
 	ret := &HostList{RscList: RscList{type_: "host", conn: hl.conn}}
 	ret.filter = filter
@@ -171,11 +175,25 @@ func (hll *HostLunListCtor) initList(filter string) RscLister {
 	return ret
 }
 
-func GetHostLUN(conn *Connection, host *Host, lun *Lun) *HostLUN {
+func GetHostLUNList(conn *Connection, host *Host, lun *Lun) *HostLUNList {
 	ctor := &HostLunListCtor{conn}
-	list := ctor.initList(fmt.Sprintf(`host eq "%v" and lun eq "%v"`, host.Id, lun.Id))
-	UpdateList(list)
-	hi := list.Iterator().Value()
+	var filter string
+	if host == nil {
+		filter = fmt.Sprintf(`lun eq "%v"`, lun.Id)
+	} else if lun == nil {
+		filter = fmt.Sprintf(`host eq "%v"`, host.Id)
+	} else {
+		filter = fmt.Sprintf(`host eq "%v" and lun eq "%v"`, host.Id, lun.Id)
+	}
+
+	hostLUNList := ctor.initList(filter)
+	UpdateList(hostLUNList)
+	return hostLUNList.(*HostLUNList)
+}
+
+func GetHostLUN(conn *Connection, host *Host, lun *Lun) *HostLUN {
+	hostLUNList := GetHostLUNList(conn, host, lun)
+	hi := hostLUNList.Iterator().Value()
 	if hi == nil {
 		return nil
 	} else {

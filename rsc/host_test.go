@@ -1,6 +1,7 @@
 package rsc
 
 import (
+	"github.com/Sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -146,4 +147,15 @@ func TestGetHostLUN(t *testing.T) {
 func TestGetHostLUN_notFound(t *testing.T) {
 	hostLun := GetHostLUN(MockConn(), &Host{Rsc: Rsc{Id: "Host_5"}}, &Lun{Rsc: Rsc{Id: "sv_99"}})
 	assert.Nil(t, hostLun)
+}
+
+func TestGetHostLUNList(t *testing.T) {
+	logrus.SetLevel(logrus.DebugLevel)
+	host := GetHostByName(MockConn(), "gohost")
+	hostLunList := host.GetHostLUNList()
+	assert.Equal(t, 2, hostLunList.Size())
+	for it := hostLunList.Iterator(); it.Next(); {
+		hostLUN := it.Value().(*HostLUN)
+		assert.Equal(t, "Host_13", hostLUN.Host.Id)
+	}
 }

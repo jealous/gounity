@@ -141,6 +141,10 @@ func (lun *Lun) Delete() error {
 	return DeleteLunById(lun.conn, lun.Id)
 }
 
+func (lun *Lun) GetHostLUN() *HostLUNList {
+	return GetHostLUNList(lun.conn, nil, lun)
+}
+
 func DeleteLunById(conn *Connection, id string) error {
 	_, err := conn.DeleteRscInst("storageResource", id, "")
 	return err

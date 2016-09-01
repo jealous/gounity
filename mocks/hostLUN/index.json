@@ -15,6 +15,14 @@
     {
       "url": "/api/types/hostLUN/instances?compact=true&fields=id,host,type,hlu,lun,snap,isReadOnly,isDefaultSnap&filter=host eq \"Host_5\" and lun eq \"sv_99\"",
       "response": "not_found.json"
+    },
+    {
+      "url": "/api/types/hostLUN/instances?compact=true&fields=id,host,type,hlu,lun,snap,isReadOnly,isDefaultSnap&filter=lun eq \"sv_68\"",
+      "response": "sv_68.json"
+    },
+    {
+      "url": "/api/types/hostLUN/instances?compact=true&fields=id,host,type,hlu,lun,snap,isReadOnly,isDefaultSnap&filter=host eq \"Host_6\"",
+      "response": "Host_6.json"
     }
   ]
 }

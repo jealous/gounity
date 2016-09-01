@@ -1,0 +1,69 @@
+{
+  "@base": "https://10.244.223.61/api/types/lun/instances?filter=name eq \"golun\"&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,compressionRatio,perTierSizeUsed,isThinEnabled,isCompressionEnabled,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,isSnapSchedulePaused,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount,snapSchedule.id,storageResource.id,pool.id,ioLimitPolicy.id&per_page=2000&compact=true",
+  "updated": "2016-09-01T10:20:45.976Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "sv_68",
+        "type": 2,
+        "tieringPolicy": 0,
+        "defaultNode": 0,
+        "currentNode": 0,
+        "health": {
+          "value": 5,
+          "descriptionIds": [
+            "ALRT_VOL_OK"
+          ],
+          "descriptions": [
+            "The LUN is operating normally. No action is required."
+          ]
+        },
+        "name": "golun",
+        "description": "",
+        "sizeTotal": 2147483648,
+        "sizeAllocated": 0,
+        "compressionSizeSaved": 0,
+        "compressionPercent": 0,
+        "compressionRatio": 1.0,
+        "perTierSizeUsed": [
+          2952790016,
+          0,
+          0
+        ],
+        "isThinEnabled": true,
+        "isCompressionEnabled": false,
+        "wwn": "60:06:01:60:03:B0:3A:00:87:FE:C7:57:A6:DF:AD:DA",
+        "isReplicationDestination": false,
+        "isSnapSchedulePaused": false,
+        "metadataSize": 3489660928,
+        "metadataSizeAllocated": 2684354560,
+        "snapWwn": "60:06:01:60:03:B0:3A:00:AE:99:1F:61:AB:8F:4A:7C",
+        "snapsSize": 0,
+        "snapsSizeAllocated": 0,
+        "hostAccess": [
+          {
+            "accessMask": 1,
+            "productionAccess": 1,
+            "snapshotAccess": 0,
+            "host": {
+              "id": "Host_13"
+            }
+          }
+        ],
+        "snapCount": 0,
+        "storageResource": {
+          "id": "sv_68"
+        },
+        "pool": {
+          "id": "pool_1"
+        }
+      }
+    }
+  ]
+}

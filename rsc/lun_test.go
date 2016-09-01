@@ -47,6 +47,8 @@ func VerifyLun1(t *testing.T, lun *Lun) {
 	asserts.Equal(uint64(0), lun.SnapsSizeAllocated)
 	asserts.Equal(uint32(2), lun.SnapCount)
 	asserts.Equal("pool_1", lun.Pool.Id)
+	asserts.Equal("The LUN is operating normally. No action is required.",
+		lun.Health.Description())
 }
 
 func TestGetLunByName(t *testing.T) {
@@ -97,4 +99,11 @@ func TestLun_DetachHost(t *testing.T) {
 	lun := GetLunByName(conn, "gounity")
 	err := lun.DetachHost(host)
 	assert.Nil(t, err)
+}
+
+func TestGetHostLUNByLun(t *testing.T) {
+	lun := GetLunByName(MockConn(), "golun")
+	hostLunList := lun.GetHostLUN()
+	assert.Equal(t, 1, hostLunList.Size())
+	assert.Equal(t, uint16(1), hostLunList.Iterator().Value().(*HostLUN).Hlu)
 }

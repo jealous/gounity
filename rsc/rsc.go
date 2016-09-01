@@ -222,6 +222,10 @@ type Health struct {
 	Descriptions   []string
 }
 
+func (h *Health) Description() string {
+	return strings.Join(h.Descriptions, "\n")
+}
+
 func getRscByName(name string, ctor RscListCtor) Rscer {
 	list := ctor.initList(fmt.Sprintf(`name eq "%v"`, name))
 	UpdateList(list)

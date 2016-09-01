@@ -21,6 +21,10 @@
       "response": "gounity.json"
     },
     {
+      "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount&filter=name eq \"golun\"",
+      "response": "golun.json"
+    },
+    {
       "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount&filter=pool eq \"pool_1\"",
       "response": "pool_1_luns.json"
     }
