@@ -7,6 +7,10 @@
     {
       "url": "/api/instances/system/0?compact=true&fields=id,health,name,model,serialNumber,internalModel,platform,macAddress,isEULAAccepted,isUpgradeComplete,isAutoFailbackEnabled,currentPower,avgPower,supportedUpgradeModels",
       "response": "0.json"
+    },
+    {
+      "url": "/api/instances/system/1?compact=true&fields=id,health,name,model,serialNumber,internalModel,platform,macAddress,isEULAAccepted,isUpgradeComplete,isAutoFailbackEnabled,currentPower,avgPower,supportedUpgradeModels",
+      "response": "401.html"
     }
   ]
 }

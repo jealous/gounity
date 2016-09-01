@@ -32,6 +32,18 @@ func (unity *Unity) Username() string {
 	return unity.GetConn().username
 }
 
+func (unity *Unity) Serial() string {
+	if unity.SerialNumber == "" {
+		Update(unity)
+	}
+	return unity.SerialNumber
+}
+
+func (unity *Unity) Authenticate() error {
+	_, err := unity.GetConn().GetRscInst(unity.GetType(), unity.GetId())
+	return err
+}
+
 func (unity *Unity) GetPoolList() *PoolList {
 	return GetPoolList(unity.GetConn())
 }

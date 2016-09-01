@@ -41,3 +41,8 @@ func TestGetSystem(t *testing.T) {
 	asserts.Contains(health.DescriptionIds, "ALRT_SYSTEM_OK")
 	asserts.Contains(health.Descriptions, "The system is operating normally.")
 }
+
+func TestUnity_Serial(t *testing.T) {
+	system := NewUnityByConn(MockConn())
+	assert.Equal(t, "FNM00150600267", system.Serial())
+}

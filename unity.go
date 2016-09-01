@@ -16,6 +16,12 @@ type Unity interface {
 	// Username returns the current user used for REST connection.
 	Username() string
 
+	// Serial returns the unique ID for the unity instance
+	Serial() string
+
+	// Authenticate checks the credentials and connectivity to the system.
+	Authenticate() error
+
 	// GetPoolList returns all pools on the system
 	GetPoolList() *rsc.PoolList
 
@@ -51,6 +57,14 @@ type Unity interface {
 
 	// CreateHost creates a host instance on the system
 	CreateHost(name string) (*rsc.Host, error)
+}
+
+func Update(r rsc.Rscer) rsc.Rscer {
+	return rsc.Update(r)
+}
+
+func UpdateList(r rsc.RscLister) rsc.RscLister {
+	return rsc.UpdateList(r)
 }
 
 // New creates a new Unity storage system instance.

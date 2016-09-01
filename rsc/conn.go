@@ -3,6 +3,7 @@ package rsc
 import (
 	"crypto/tls"
 	"encoding/json"
+	"errors"
 	"fmt"
 	log "github.com/Sirupsen/logrus"
 	"golang.org/x/net/publicsuffix"
@@ -91,12 +92,16 @@ func (conn *Connection) request(url, body, method string) (*http.Response, error
 
 	var resp *http.Response
 	resp, err = conn.do(req)
-	if resp.StatusCode == 401 && method != "GET" {
-		req, err := conn.newRequest(url, body, method)
-		if err != nil {
-			return nil, err
+	if resp != nil && resp.StatusCode == 401 {
+		if method == "GET" {
+			err = errors.New("Unity login failed.  please check your credential.")
+		} else {
+			req, err := conn.newRequest(url, body, method)
+			if err != nil {
+				return nil, err
+			}
+			resp, err = conn.retryWithCsrfToken(req)
 		}
-		resp, err = conn.retryWithCsrfToken(req)
 	}
 	return resp, err
 }
