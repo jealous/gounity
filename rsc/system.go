@@ -1,4 +1,4 @@
-package lib
+package rsc
 
 type Unity struct {
 	Rsc

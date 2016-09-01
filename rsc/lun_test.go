@@ -1,4 +1,4 @@
-package lib
+package rsc
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetLunList(t *testing.T) {
-	lunList := GetLunList(testConn())
+	lunList := GetLunList(MockConn())
 
 	assert.Equal(t, 2, lunList.Size())
 
@@ -20,7 +20,7 @@ func TestGetLunList(t *testing.T) {
 }
 
 func TestUpdatePoolProperty(t *testing.T) {
-	lun := GetLunById(testConn(), "sv_2")
+	lun := GetLunById(MockConn(), "sv_2")
 	assert.Equal(t, "gounity", lun.Name)
 	assert.Equal(t, 2, len(lun.HostAccess))
 
@@ -50,12 +50,12 @@ func VerifyLun1(t *testing.T, lun *Lun) {
 }
 
 func TestGetLunByName(t *testing.T) {
-	lun := GetLunByName(testConn(), "lun1")
+	lun := GetLunByName(MockConn(), "lun1")
 	VerifyLun1(t, lun)
 }
 
 func TestCreateLun(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	pool := GetPoolByName(conn, "perfpool1132")
 	lun, err := CreateLun(conn, pool, "gounity", 5)
 	assert.Equal(t, "gounity", lun.Name)
@@ -63,7 +63,7 @@ func TestCreateLun(t *testing.T) {
 }
 
 func TestCreateLun_NameUsed(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	pool := GetPoolByName(conn, "perfpool1132")
 	lun, err := CreateLun(conn, pool, "openstack_dummy_lun", 5)
 	assert.Nil(t, lun)
@@ -71,19 +71,19 @@ func TestCreateLun_NameUsed(t *testing.T) {
 }
 
 func TestDeleteLunById(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	err := DeleteLunById(conn, "sv_4")
 	assert.Nil(t, err)
 }
 
 func TestDeleteLunNotFound(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	err := DeleteLunById(conn, "sv_5")
 	assert.Contains(t, err.Error(), "resource does not exist")
 }
 
 func TestLun_AttachHost(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	host := GetHostByName(conn, "gohost")
 	lun := GetLunByName(conn, "gounity")
 	hostLun, err := lun.AttachHost(host)
@@ -92,7 +92,7 @@ func TestLun_AttachHost(t *testing.T) {
 }
 
 func TestLun_DetachHost(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	host := GetHostByName(conn, "gohost")
 	lun := GetLunByName(conn, "gounity")
 	err := lun.DetachHost(host)

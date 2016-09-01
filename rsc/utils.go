@@ -1,4 +1,4 @@
-package lib
+package rsc
 
 import (
 	"encoding/json"
@@ -31,7 +31,13 @@ func currentFolder() string {
 }
 
 func testFolder() string {
-	return filepath.Join(currentFolder(), "..", "mocks")
+	folder := currentFolder()
+	if !strings.Contains(folder, "rsc") {
+		folder = filepath.Join(folder, "mocks")
+	} else {
+		folder = filepath.Join(folder, "..", "mocks")
+	}
+	return folder
 }
 
 func mockFolder(rsc string) string {

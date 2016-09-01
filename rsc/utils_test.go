@@ -1,4 +1,4 @@
-package lib
+package rsc
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -8,7 +8,7 @@ import (
 func TestCurrentFolder(t *testing.T) {
 	folder := currentFolder()
 	assert.Contains(t, folder, "gounity")
-	assert.Contains(t, folder, "lib")
+	assert.Contains(t, folder, "rsc")
 }
 
 func TestTestFolder(t *testing.T) {
@@ -104,7 +104,7 @@ func TestMakeBody_rscLister(t *testing.T) {
 }
 
 func TestMakeBody_nestedRscer(t *testing.T) {
-	host := GetHostById(mockConn(), "Host_6")
+	host := GetHostById(MockConn(), "Host_6")
 	hostAccess := []interface{}{
 		map[string]interface{}{"host": host, "mask": PRODUCTION},
 	}

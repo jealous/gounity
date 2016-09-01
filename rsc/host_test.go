@@ -1,4 +1,4 @@
-package lib
+package rsc
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -12,7 +12,7 @@ func TestHostRelatedEnumValues(t *testing.T) {
 }
 
 func TestGetHostList(t *testing.T) {
-	hosts := GetHostList(testConn())
+	hosts := GetHostList(MockConn())
 	assert.Equal(t, 7, hosts.Size())
 	for it := hosts.Iterator(); it.Next(); {
 		host := it.Value().(*Host)
@@ -23,12 +23,12 @@ func TestGetHostList(t *testing.T) {
 }
 
 func TestGetHostByName(t *testing.T) {
-	host := GetHostByName(testConn(), "gohost")
+	host := GetHostByName(MockConn(), "gohost")
 	VerifyHost6(t, host)
 }
 
 func TestGetHostById(t *testing.T) {
-	host := GetHostById(testConn(), "Host_6")
+	host := GetHostById(MockConn(), "Host_6")
 	VerifyHost6(t, host)
 }
 
@@ -49,27 +49,27 @@ func VerifyHost6(t *testing.T, host *Host) {
 }
 
 func TestCreateHost(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	host, err := CreateHost(conn, "gohost")
 	VerifyHost6(t, host)
 	assert.Nil(t, err)
 }
 
 func TestDeleteHost(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	err := DeleteHostById(conn, "Host_12")
 	assert.Nil(t, err)
 }
 
 func TestDeleteHost_notFound(t *testing.T) {
-	conn := mockConn()
+	conn := MockConn()
 	err := DeleteHostById(conn, "Host_7")
 	assert.Contains(t, err.Error(), "does not exist")
 }
 
 func TestGetInitiatorByUid(t *testing.T) {
 	uid := "20:00:00:90:FA:53:41:40:10:00:00:90:FA:53:41:40"
-	hi := GetInitiatorByUid(mockConn(), uid)
+	hi := GetInitiatorByUid(MockConn(), uid)
 	VerifyHostInitiator2(t, hi)
 }
 
@@ -88,7 +88,7 @@ func VerifyHostInitiator2(t *testing.T, hi *HostInitiator) {
 
 func TestGetInitiatorByUid_notFound(t *testing.T) {
 	uid := "20:00:00:90:FA:53:41:40:10:00:00:90:FA:AA:AA:AA"
-	hi := GetInitiatorByUid(mockConn(), uid)
+	hi := GetInitiatorByUid(MockConn(), uid)
 	assert.Nil(t, hi)
 }
 
@@ -105,7 +105,7 @@ func TestGetInitiatorType_ISCSI(t *testing.T) {
 func TestCreateInitiator_existed(t *testing.T) {
 	uid := "20:00:00:90:FA:53:41:40:10:00:00:90:FA:53:41:40"
 	host := &Host{Rsc: Rsc{Id: "Host_2"}}
-	hi, err := CreateInitiator(mockConn(), host, uid)
+	hi, err := CreateInitiator(MockConn(), host, uid)
 	assert.Nil(t, err)
 	VerifyHostInitiator2(t, hi)
 }
@@ -113,7 +113,7 @@ func TestCreateInitiator_existed(t *testing.T) {
 func TestCreateInitiator(t *testing.T) {
 	uid := "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:66:77:88:99"
 	host := &Host{Rsc: Rsc{Id: "Host_13"}}
-	hi, err := CreateInitiator(mockConn(), host, uid)
+	hi, err := CreateInitiator(MockConn(), host, uid)
 	assert.Nil(t, err)
 	assert.Equal(t, uid, hi.InitiatorId)
 }
@@ -121,18 +121,18 @@ func TestCreateInitiator(t *testing.T) {
 func TestCreateInitiator_hostNotFound(t *testing.T) {
 	uid := "AA:BB:CC:DD:EE:FF:00:11:22:33:44:55:88:88:88:88"
 	host := &Host{Rsc: Rsc{Id: "Host_999"}}
-	hi, err := CreateInitiator(mockConn(), host, uid)
+	hi, err := CreateInitiator(MockConn(), host, uid)
 	assert.Nil(t, hi)
 	assert.Contains(t, err.Error(), "Cannot find the specified host")
 }
 
 func TestDeleteInitiatorById(t *testing.T) {
-	err := DeleteInitiatorById(mockConn(), "HostInitiator_49")
+	err := DeleteInitiatorById(MockConn(), "HostInitiator_49")
 	assert.Nil(t, err)
 }
 
 func TestGetHostLUN(t *testing.T) {
-	hostLun := GetHostLUN(mockConn(), &Host{Rsc: Rsc{Id: "Host_5"}}, &Lun{Rsc: Rsc{Id: "sv_2"}})
+	hostLun := GetHostLUN(MockConn(), &Host{Rsc: Rsc{Id: "Host_5"}}, &Lun{Rsc: Rsc{Id: "sv_2"}})
 	asserts := assert.New(t)
 	asserts.Equal("Host_5_sv_2_snap", hostLun.Id)
 	asserts.Equal(HostLUNType_Snap, hostLun.Type)
@@ -144,6 +144,6 @@ func TestGetHostLUN(t *testing.T) {
 }
 
 func TestGetHostLUN_notFound(t *testing.T) {
-	hostLun := GetHostLUN(mockConn(), &Host{Rsc: Rsc{Id: "Host_5"}}, &Lun{Rsc: Rsc{Id: "sv_99"}})
+	hostLun := GetHostLUN(MockConn(), &Host{Rsc: Rsc{Id: "Host_5"}}, &Lun{Rsc: Rsc{Id: "sv_99"}})
 	assert.Nil(t, hostLun)
 }

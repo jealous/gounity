@@ -3,9 +3,8 @@ language: go
 sudo: false
 
 go:
-  - 1.5
   - 1.6
-  - tip
+  - 1.7
 
 before_install:
   - go get github.com/mattn/goveralls
@@ -13,5 +12,5 @@ before_install:
   - go get github.com/stretchr/testify/assert
 
 script:
-  - go test -covermode=count -coverprofile=profile.cov ./lib
+  - go test -covermode=count -coverprofile=profile.cov ./rsc
   - $HOME/gopath/bin/goveralls -coverprofile=profile.cov -service=travis-ci

@@ -1,4 +1,4 @@
-package lib
+package rsc
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetAllPool(t *testing.T) {
-	poolList := GetPoolList(mockConn())
+	poolList := GetPoolList(MockConn())
 	asserts := assert.New(t)
 
 	asserts.NotNil(poolList)
@@ -21,17 +21,17 @@ func TestGetAllPool(t *testing.T) {
 }
 
 func TestGetPoolByName(t *testing.T) {
-	pool := GetPoolByName(mockConn(), "perfpool1132")
+	pool := GetPoolByName(MockConn(), "perfpool1132")
 	ValidatePool1132(t, pool)
 }
 
 func TestGetPoolByName_NotFound(t *testing.T) {
-	pool := GetPoolByName(mockConn(), "notFound")
+	pool := GetPoolByName(MockConn(), "notFound")
 	assert.Nil(t, pool)
 }
 
 func TestGetPoolById(t *testing.T) {
-	pool := GetPoolById(mockConn(), "pool_1")
+	pool := GetPoolById(MockConn(), "pool_1")
 	ValidatePool1132(t, pool)
 }
 
@@ -45,7 +45,7 @@ func ValidatePool1132(t *testing.T, pool *Pool) {
 }
 
 func TestPool_GetLunList(t *testing.T) {
-	pool := &Pool{Rsc: Rsc{conn: mockConn(), type_: "pool", Id: "pool_1"}}
+	pool := &Pool{Rsc: Rsc{conn: MockConn(), type_: "pool", Id: "pool_1"}}
 	lunList := pool.GetLunList()
 	assert.Equal(t, 2, lunList.Size())
 

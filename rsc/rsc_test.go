@@ -1,13 +1,9 @@
-package lib
+package rsc
 
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
-
-func mockConn() *Connection {
-	return NewMockConnection("10.244.223.61", "osadmin", "Password123!")
-}
 
 func systemType() (*Type, error) {
 	url := "https://1.1.1.1/api/types/system?compact=True"
