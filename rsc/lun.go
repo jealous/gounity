@@ -137,6 +137,16 @@ func (lun *Lun) DetachHost(host *Host) error {
 	return nil
 }
 
+func (lun *Lun) DetachAllHosts() error {
+	var hostAccess []interface{}
+	lunParam := *assembleLunParameter(&hostAccess)
+	if _, err := StorageRscInstDo(lun.conn, lun.Id, "modifyLun", lunParam); err != nil {
+		log.WithError(err).Error("detach all host failed.")
+		return err
+	}
+	return nil
+}
+
 func (lun *Lun) Delete() error {
 	return DeleteLunById(lun.conn, lun.Id)
 }

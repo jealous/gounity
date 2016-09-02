@@ -71,6 +71,15 @@
         }
       },
       "response": "empty.json"
+    },
+    {
+      "url": "/api/instances/storageResource/sv_68/action/modifyLun?compact=true",
+      "body": {
+        "lunParameters": {
+          "hostAccess": []
+        }
+      },
+      "response": "empty.json"
     }
   ]
 }
