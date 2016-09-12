@@ -10,7 +10,7 @@ func MockConn() *Connection {
 }
 
 func UnityConn() *Connection {
-	return NewConnection("10.244.223.61", "osadmin", "Password123!")
+	return NewConnection("10.244.223.61", "admin", "Password123!")
 }
 
 func TestConnection_getAllUrl(t *testing.T) {

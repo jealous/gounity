@@ -7,7 +7,7 @@ import (
 type Lun struct {
 	Rsc
 	Name                  string
-	Health                Health
+	Health                *Health
 	Description           string
 	SizeTotal             uint64
 	SizeUsed              uint64
@@ -20,8 +20,9 @@ type Lun struct {
 	SnapsSize             uint64
 	SnapsSizeAllocated    uint64
 	SnapCount             uint32
-	Pool                  Pool
-	HostAccess            []BlockHostAccess
+	StorageResource       *StorageResource
+	Pool                  *Pool
+	HostAccess            *[]BlockHostAccess
 }
 
 type LunList struct {
@@ -99,7 +100,7 @@ func (lun *Lun) AttachHost(host *Host) (*HostLUN, error) {
 	hostAccess := []interface{}{
 		map[string]interface{}{"host": host, "accessMask": PRODUCTION},
 	}
-	for _, access := range lun.HostAccess {
+	for _, access := range *lun.HostAccess {
 		item := map[string]interface{}{"host": &access.Host, "accessMask": access.AccessMask}
 		hostAccess = append(hostAccess, item)
 	}
@@ -122,7 +123,7 @@ func assembleLunParameter(hostAccess *[]interface{}) *map[string]interface{} {
 
 func (lun *Lun) DetachHost(host *Host) error {
 	hostAccess := make([]interface{}, 0)
-	for _, access := range lun.HostAccess {
+	for _, access := range *lun.HostAccess {
 		if access.Host.Id == host.Id {
 			continue
 		}
@@ -153,6 +154,10 @@ func (lun *Lun) Delete() error {
 
 func (lun *Lun) GetHostLUN() *HostLUNList {
 	return GetHostLUNList(lun.conn, nil, lun)
+}
+
+func (lun *Lun) CreateSnap(name string) (*Snap, error) {
+	return CreateLunSnap(lun.conn, lun, name)
 }
 
 func DeleteLunById(conn *Connection, id string) error {

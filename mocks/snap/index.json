@@ -1,0 +1,41 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/snap?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/snap/instances?compact=true&fields=id,name,description,storageResource,lun,snapGroup,parentSnap,creationTime,expirationTime,lastRefreshTime,creatorType,creatorUser,creatorSchedule,isSystemSnap,isModifiable,attachedWWN,accessType,isReadOnly,lastWritableTime,isModified,isAutoDelete,state,size,ioLimitPolicy,hostAccess",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/types/snap/instances?compact=true&fields=id,name,description,storageResource,lun,snapGroup,parentSnap,creationTime,expirationTime,lastRefreshTime,creatorType,creatorUser,creatorSchedule,isSystemSnap,isModifiable,attachedWWN,accessType,isReadOnly,lastWritableTime,isModified,isAutoDelete,state,size,ioLimitPolicy,hostAccess&filter=name eq \"Volcan_snap0\"",
+      "response": "volcan_snap0.json"
+    },
+    {
+      "url": "/api/instances/snap/38654705727?compact=true&fields=id,name,description,storageResource,lun,snapGroup,parentSnap,creationTime,expirationTime,lastRefreshTime,creatorType,creatorUser,creatorSchedule,isSystemSnap,isModifiable,attachedWWN,accessType,isReadOnly,lastWritableTime,isModified,isAutoDelete,state,size,ioLimitPolicy,hostAccess",
+      "response": "38654705727.json"
+    },
+    {
+      "url": "/api/instances/snap/38654705730?compact=true&fields=id,name,description,storageResource,lun,snapGroup,parentSnap,creationTime,expirationTime,lastRefreshTime,creatorType,creatorUser,creatorSchedule,isSystemSnap,isModifiable,attachedWWN,accessType,isReadOnly,lastWritableTime,isModified,isAutoDelete,state,size,ioLimitPolicy,hostAccess",
+      "response": "38654705730.json"
+    },
+    {
+      "url": "/api/types/snap/instances?compact=true",
+      "body": {
+        "description": "created by gounity",
+        "isAutoDelete": true,
+        "isReadOnly": false,
+        "name": "Volcan_snap1",
+        "storageResource": {
+          "id": "sv_22"
+        }
+      },
+      "response": "create_volcan_snap1.json"
+    },
+    {
+      "url": "/api/instances/snap/38654705730?compact=true",
+      "response": "empty.json"
+    }
+  ]
+}

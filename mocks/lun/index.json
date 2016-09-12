@@ -13,6 +13,10 @@
       "response": "lun1.json"
     },
     {
+      "url": "/api/types/lun/instances?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount&filter=name eq \"Volcan\"",
+      "response": "volcan.json"
+    },
+    {
       "url": "/api/instances/lun/sv_2?compact=true&fields=id,health,name,description,type,sizeTotal,sizeUsed,sizeAllocated,compressionSizeSaved,compressionPercent,perTierSizeUsed,isThinEnabled,isCompressionEnabled,storageResource,pool,wwn,tieringPolicy,defaultNode,isReplicationDestination,currentNode,snapSchedule,isSnapSchedulePaused,ioLimitPolicy,metadataSize,metadataSizeAllocated,snapWwn,snapsSize,snapsSizeAllocated,hostAccess,snapCount",
       "response": "sv_2.json"
     },

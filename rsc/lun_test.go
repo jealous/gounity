@@ -23,9 +23,9 @@ func TestGetLunList(t *testing.T) {
 func TestUpdatePoolProperty(t *testing.T) {
 	lun := GetLunById(MockConn(), "sv_2")
 	assert.Equal(t, "gounity", lun.Name)
-	assert.Equal(t, 2, len(lun.HostAccess))
+	assert.Equal(t, 2, len(*lun.HostAccess))
 
-	hostAccess := lun.HostAccess[0]
+	hostAccess := (*lun.HostAccess)[0]
 	assert.Equal(t, SNAPSHOT, hostAccess.AccessMask)
 	assert.Equal(t, "Host_5", hostAccess.Host.Id)
 }
@@ -50,6 +50,7 @@ func VerifyLun1(t *testing.T, lun *Lun) {
 	asserts.Equal("pool_1", lun.Pool.Id)
 	asserts.Equal("The LUN is operating normally. No action is required.",
 		lun.Health.Description())
+	asserts.Equal("sv_1", lun.StorageResource.Id)
 }
 
 func TestGetLunByName(t *testing.T) {

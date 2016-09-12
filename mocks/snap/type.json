@@ -1,0 +1,441 @@
+{
+  "content": {
+    "name": "snap",
+    "description": "Information about storage resource snapshots in the storage system.  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/snap.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/snap/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the snap instance.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "description": "Snapshot name.  ",
+        "displayValue": "name"
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "description": "Snapshot description.  ",
+        "displayValue": "description"
+      },
+      {
+        "name": "storageResource",
+        "type": "storageResource",
+        "description": "Storage resource for which the snapshot was taken as defined by the storageResource resource type.  ",
+        "displayValue": "storageResource"
+      },
+      {
+        "name": "lun",
+        "type": "lun",
+        "description": "For a snapshot of a LUN in a Consistency group, the unique identifier of the source LUN as defined by the lun resource type.  ",
+        "displayValue": "lun"
+      },
+      {
+        "name": "snapGroup",
+        "type": "snap",
+        "description": "For a snapshot of a LUN in a Consistency group, the unique identifier of the snapshot group to which the snapshot belongs, as defined by the snap resource type.  ",
+        "displayValue": "snapGroup"
+      },
+      {
+        "name": "parentSnap",
+        "type": "snap",
+        "description": "For a snapshot of another snapshot, the unique identifier of the parent snapshot, as defined by the snap resource type.  ",
+        "displayValue": "parentSnap"
+      },
+      {
+        "name": "creationTime",
+        "type": "DateTime",
+        "description": "Date and time on which the snapshot was taken.  ",
+        "displayValue": "creationTime"
+      },
+      {
+        "name": "expirationTime",
+        "type": "DateTime",
+        "description": "Date and time after which the snapshot will expire.  ",
+        "displayValue": "expirationTime"
+      },
+      {
+        "name": "lastRefreshTime",
+        "type": "DateTime",
+        "description": "Date and time of last refresh operation  ",
+        "displayValue": "lastRefreshTime"
+      },
+      {
+        "name": "creatorType",
+        "type": "SnapCreatorTypeEnum",
+        "description": "Type of creator that created this snapshot.  ",
+        "displayValue": "creatorType"
+      },
+      {
+        "name": "creatorUser",
+        "type": "user",
+        "description": "For a user-created snapshot, information about the user that created the snapshot, as defined by the user resource type.  ",
+        "displayValue": "creatorUser"
+      },
+      {
+        "name": "creatorSchedule",
+        "type": "snapSchedule",
+        "description": "For a schedule-created snapshot, information about the snapshot schedule that created the snapshot, as defined by the snapSchedule resource type.  ",
+        "displayValue": "creatorSchedule"
+      },
+      {
+        "name": "isSystemSnap",
+        "type": "Boolean",
+        "description": "Indicates whether the snapshot is an internal snapshot. Internal snapshots are created by the Replication feature. End user operations are not permitted on internal snapshots. Values are: \\u003Cul> \\u003Cli>true - Snapshot is internal.\\u003C/li> \\u003Cli>false - Snapshot is external.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "isSystemSnap"
+      },
+      {
+        "name": "isModifiable",
+        "type": "Boolean",
+        "description": "Indicates whether the snapshot is attached or shared in a manner making it writable by clients. Values are: \\u003Cul> \\u003Cli>true - Snapshot can be modified.\\u003C/li> \\u003Cli>false - Snapshot cannot be modified.\\u003C/li> \\u003C/ul> Snapshots of file systems and VMware NFS datastores are modifiable when they have shares. Snapshots of LUNs and VMware VMFS datastores are modifiable when they are attached.  ",
+        "displayValue": "isModifiable"
+      },
+      {
+        "name": "attachedWWN",
+        "type": "String",
+        "description": "For an attached snapshot, the World Wide Name (WWN) of the attached LUN.  ",
+        "displayValue": "attachedWWN"
+      },
+      {
+        "name": "accessType",
+        "type": "FilesystemSnapAccessTypeEnum",
+        "description": "For a file system or VMware NFS datastore snapshot, indicates whether the snapshot has checkpoint or protocol type access.  ",
+        "displayValue": "accessType"
+      },
+      {
+        "name": "isReadOnly",
+        "type": "Boolean",
+        "description": "Indicates whether the snapshot was created with read-only (checkpoint) access (file system or VMware NFS datastore snapshots only). Values are: \\u003Cul> \\u003Cli>true - Snapshot was created with read-only (checkpoint) access and cannot be modified.\\u003C/li> \\u003Cli>false - Snapshot was created with read-write (protocol) access and can be modified.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "isReadOnly"
+      },
+      {
+        "name": "lastWritableTime",
+        "type": "DateTime",
+        "description": "If not attached or shared, and was attached or shared in the past, time of last unattach or share deletion.  ",
+        "displayValue": "lastWritableTime"
+      },
+      {
+        "name": "isModified",
+        "type": "Boolean",
+        "description": "Indicates if the snapshot may have changed since it was created. Values are: \\u003Cul> \\u003Cli>true - Snapshot is or was attached or shared with read/write access.\\u003C/li> \\u003Cli>false - Snapshot was never attached or shared.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "isModified"
+      },
+      {
+        "name": "isAutoDelete",
+        "type": "Boolean",
+        "description": "Indicates if this snapshot can be automatically deleted by the system per threshold settings. Values are: \\u003Cul> \\u003Cli>true - Snapshot can be automatically deleted by the system per threshold settings.\\u003C/li> \\u003Cli>false - Snapshot cannot be deleted automatically.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "isAutoDelete"
+      },
+      {
+        "name": "state",
+        "type": "SnapStateEnum",
+        "description": "The snapshot state in Snapshot state enum.  ",
+        "displayValue": "state"
+      },
+      {
+        "name": "size",
+        "type": "Integer",
+        "description": "Size of the storage resource when the snapshot was created (LUN snapshots only).  ",
+        "displayValue": "size"
+      },
+      {
+        "name": "ioLimitPolicy",
+        "type": "ioLimitPolicy",
+        "description": "IO limit policy that applies to the snapshot, as defined by the ioLimitPolicy resource type.  ",
+        "displayValue": "ioLimitPolicy"
+      },
+      {
+        "name": "hostAccess",
+        "type": "List\\u003CsnapHostAccess>",
+        "description": "Host access permissions for dynamic Snapshot Mount Point. Value is set only if snapshot is attached to dynamic Snapshot Mount Point.  ",
+        "displayValue": "hostAccess"
+      }
+    ],
+    "actions": [
+      {
+        "rel": "refresh",
+        "description": "Refresh a snapshot.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": "Unique identifier of the snapshot to refresh.  ",
+            "optional": false
+          },
+          {
+            "name": "copyName",
+            "type": "String",
+            "direction": 0,
+            "description": "Name of the snapshot copy created before the refresh operation occurs.  ",
+            "optional": true
+          },
+          {
+            "name": "copy",
+            "type": "snap",
+            "direction": 1,
+            "description": "Snapshot copy created before the refresh operation occurs, as defined by the snap resource type, if copyName was specified.  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "create",
+        "description": "Create a snapshot.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "storageResource",
+            "type": "storageResource",
+            "direction": 0,
+            "description": "Id of the storageResource to snap.  ",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "Name for the new snapshot.  ",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "direction": 0,
+            "description": "Description for new snapshot.  ",
+            "optional": true
+          },
+          {
+            "name": "isAutoDelete",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Auto delete policy for new snapshot.  ",
+            "optional": true
+          },
+          {
+            "name": "retentionDuration",
+            "type": "Integer",
+            "direction": 0,
+            "description": "How long to keep the snapshot (Can be specified only if auto delete is set to false).  ",
+            "optional": true
+          },
+          {
+            "name": "isReadOnly",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates if the new snapshot should be read-only.  ",
+            "optional": true
+          },
+          {
+            "name": "filesystemAccessType",
+            "type": "FilesystemSnapAccessTypeEnum",
+            "direction": 0,
+            "description": "Indicates if the new snapshot should be created with checkpoint or protocol type access (file system or VMware NFS datastore snapshots only).  ",
+            "optional": true
+          },
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 1,
+            "description": "The id of the newly created snapshot.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "modify",
+        "description": "Modify a snapshot.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": "Unique identifier of the snapshot to modify.  ",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "direction": 0,
+            "description": "Snapshot name (Applies to block type storage resource snaps only. Filesystem snapshot names cannot be modified).  ",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "direction": 0,
+            "description": "Snapshot description.  ",
+            "optional": true
+          },
+          {
+            "name": "isAutoDelete",
+            "type": "Boolean",
+            "direction": 0,
+            "description": "Indicates whether the system will automatically delete the snapshot when the pool snapshot space or total pool space reaches an automatic deletion threshold. Valid values are: \\u003Cul> \\u003Cli>System will automatically delete the snapshot based on pool automatic deletion thresholds.. \\u003Cli>Snapshot will not automatically delete the snapshot based on pool automatic deletion thresholds. \\u003C/ul> \\u003Cbr> For information about automatic deletion thresholds, see the help topic for the pool resource type.  ",
+            "optional": true
+          },
+          {
+            "name": "retentionDuration",
+            "type": "Integer",
+            "direction": 0,
+            "description": "Duration in seconds specifying how long to retain the snapshot. When the retention period expires, the system will delete the snapshot; You cannot recover the snapshot after it has been deleted. \\u003Cbr> \\u003Cbr>The default retention period is seven days.  ",
+            "optional": true
+          },
+          {
+            "state": 2,
+            "name": "ioLimitParameters",
+            "type": "ioLimitParameters",
+            "direction": 0,
+            "description": "The IO limit policy that is applied to this snapshot. This is only applicable to attached snapshots.  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "attach",
+        "description": "Attach the snapshot so hosts can access it. Attaching a snapshot makes the snapshot accessible to configured hosts for restoring files and data. \\u003Cbr/> \\u003Cbr/> The host must have access to protection data in order to access the snapshot.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": "Unique identifier of the snapshot to attach.  ",
+            "optional": false
+          },
+          {
+            "name": "copyName",
+            "type": "String",
+            "direction": 0,
+            "description": "Name of the snapshot copy created before the Attach operation occurs.  ",
+            "optional": true
+          },
+          {
+            "name": "hostAccess",
+            "type": "List\\u003CsnapHostAccessParameters>",
+            "direction": 0,
+            "description": "List of hosts that will have access to the snapshot. If specified - snapshot will be attached to dynamic snapshot mount point.  ",
+            "optional": true
+          },
+          {
+            "name": "copy",
+            "type": "snap",
+            "direction": 1,
+            "description": "Snapshot copy created before the Attach operation occurs, as defined by the snap resource type, if copyName was specified.  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "copy",
+        "description": "Copy a snapshot.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": "Unique identifier of the snapshot to copy.  ",
+            "optional": false
+          },
+          {
+            "name": "copyName",
+            "type": "String",
+            "direction": 0,
+            "description": "Base name for the new snapshot copies.  ",
+            "optional": true
+          },
+          {
+            "name": "numCopies",
+            "type": "Integer",
+            "direction": 0,
+            "description": "Number of snapshot copies to make.  ",
+            "optional": true
+          },
+          {
+            "name": "copyStartNum",
+            "type": "Integer",
+            "direction": 0,
+            "description": "Starting number for the group of copies. This number gets appended to the name specified in the copyName argument to form the name of the first snapshot copy. The system increments the number for each new snapshot.  ",
+            "optional": true
+          },
+          {
+            "name": "copies",
+            "type": "List\\u003Csnap>",
+            "direction": 1,
+            "description": "Snapshot copies, as defined by the snap resource type.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "detach",
+        "description": "Detach the snapshot so hosts can no longer access it.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": "Unique identifier of the snapshot to detach.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "restore",
+        "description": "Restore the snapshot to the associated storage resource. \\u003Cbr/> \\u003Cbr/> Before the restoration begins, the system creates a snapshot of the storage resource. You can use this snapshot to restore the storage resource to its previous state.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": " ",
+            "optional": false
+          },
+          {
+            "name": "copyName",
+            "type": "String",
+            "direction": 0,
+            "description": "Name of the backup snapshot created before the Restore operation occurs.  ",
+            "optional": true
+          },
+          {
+            "name": "backup",
+            "type": "snap",
+            "direction": 1,
+            "description": "Backup snapshot, as defined by the snap resource type.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "delete",
+        "description": "Delete a snapshot.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "snap",
+            "direction": 0,
+            "description": "Unique identifier of the snapshot to delete.  ",
+            "optional": false
+          }
+        ]
+      }
+    ]
+  }
+}

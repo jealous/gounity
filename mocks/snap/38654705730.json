@@ -1,0 +1,25 @@
+{
+  "content": {
+    "id": "38654705730",
+    "creatorType": 2,
+    "state": 2,
+    "name": "Volcan_snap1",
+    "description": "created by gounity",
+    "creationTime": "2016-09-12T10:45:31.002Z",
+    "isSystemSnap": false,
+    "isModifiable": false,
+    "isReadOnly": false,
+    "isModified": false,
+    "isAutoDelete": true,
+    "size": 5368709120,
+    "storageResource": {
+      "id": "sv_22"
+    },
+    "lun": {
+      "id": "sv_22"
+    },
+    "creatorUser": {
+      "id": "user_admin"
+    }
+  }
+}

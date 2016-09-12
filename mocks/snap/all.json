@@ -1,0 +1,62 @@
+{
+  "@base": "https://10.244.223.61/api/types/snap/instances?fields=id,name,description,creationTime,expirationTime,lastRefreshTime,creatorType,isSystemSnap,isModifiable,attachedWWN,accessType,isReadOnly,lastWritableTime,isModified,isAutoDelete,state,size,hostAccess,lun.id,storageResource.id,ioLimitPolicy.id,snapGroup.id,creatorSchedule.id,creatorUser.id,parentSnap.id&per_page=2000&compact=true",
+  "updated": "2016-09-12T10:20:20.331Z",
+  "links": [
+    {
+      "rel": "self",
+      "href": "&page=1"
+    }
+  ],
+  "entries": [
+    {
+      "content": {
+        "id": "38654705727",
+        "creatorType": 2,
+        "state": 2,
+        "name": "Volcan_snap0",
+        "description": "The initial snap for Volcan.",
+        "creationTime": "2016-09-12T09:44:10.218Z",
+        "isSystemSnap": false,
+        "isModifiable": false,
+        "isReadOnly": false,
+        "isModified": false,
+        "isAutoDelete": true,
+        "size": 5368709120,
+        "storageResource": {
+          "id": "sv_22"
+        },
+        "lun": {
+          "id": "sv_22"
+        },
+        "creatorUser": {
+          "id": "user_admin"
+        }
+      }
+    },
+    {
+      "content": {
+        "id": "38654705729",
+        "creatorType": 2,
+        "state": 2,
+        "name": "Minerva_snap0",
+        "description": "The initial snap for Minerva.",
+        "creationTime": "2016-09-12T09:53:40.894Z",
+        "isSystemSnap": false,
+        "isModifiable": false,
+        "isReadOnly": false,
+        "isModified": false,
+        "isAutoDelete": true,
+        "size": 6442450944,
+        "storageResource": {
+          "id": "sv_23"
+        },
+        "lun": {
+          "id": "sv_23"
+        },
+        "creatorUser": {
+          "id": "user_admin"
+        }
+      }
+    }
+  ]
+}
