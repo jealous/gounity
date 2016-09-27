@@ -113,7 +113,7 @@ func extractRestError(resp *http.Response) error {
 		bytes, _ := getErrorFromResp(getRespBody(resp))
 		unmarshalErr := json.Unmarshal(bytes, err)
 		if unmarshalErr != nil {
-			log.Error("failed to unmartial response to a RestError.")
+			log.WithError(unmarshalErr).Error("failed to unmartial response to a RestError.")
 			err = unmarshalErr
 		} else {
 			log.WithError(err).Warn("REST error met.")
@@ -187,6 +187,9 @@ func getRespBody(resp *http.Response) string {
 
 func (conn *Connection) Get(url string) (string, error) {
 	resp, err := conn.request(url, "", "GET")
+	if restErr := extractRestError(resp); restErr != nil {
+		err = restErr
+	}
 	var body string
 	if err != nil {
 		body = ""
@@ -247,6 +250,7 @@ func (conn *Connection) GetRscMeta(rsc string) (string, error) {
 }
 
 func (conn *Connection) DeleteRscInst(rsc, id, body string) (string, error) {
+	log.WithField("resource", rsc).WithField("id", id).Info("removing resource.")
 	return conn.Delete(conn.deleteInstUrl(rsc, id).String(), body)
 }
 

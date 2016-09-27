@@ -1,7 +1,6 @@
 package rsc
 
 import (
-	"github.com/Sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -104,7 +103,6 @@ func TestLun_DetachHost(t *testing.T) {
 }
 
 func TestLun_DetachAllHosts(t *testing.T) {
-	logrus.SetLevel(logrus.DebugLevel)
 	conn := MockConn()
 	lun := GetLunByName(conn, "golun")
 	err := lun.DetachAllHosts()

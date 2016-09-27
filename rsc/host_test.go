@@ -1,7 +1,6 @@
 package rsc
 
 import (
-	"github.com/Sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -29,8 +28,9 @@ func TestGetHostByName(t *testing.T) {
 }
 
 func TestGetHostById(t *testing.T) {
-	host := GetHostById(MockConn(), "Host_6")
+	host, err := GetHostById(MockConn(), "Host_6")
 	VerifyHost6(t, host)
+	assert.Nil(t, err)
 }
 
 func VerifyHost6(t *testing.T, host *Host) {
@@ -150,7 +150,6 @@ func TestGetHostLUN_notFound(t *testing.T) {
 }
 
 func TestGetHostLUNList(t *testing.T) {
-	logrus.SetLevel(logrus.DebugLevel)
 	host := GetHostByName(MockConn(), "gohost")
 	hostLunList := host.GetHostLUNList()
 	assert.Equal(t, 2, hostLunList.Size())
@@ -158,4 +157,46 @@ func TestGetHostLUNList(t *testing.T) {
 		hostLUN := it.Value().(*HostLUN)
 		assert.Equal(t, "Host_13", hostLUN.Host.Id)
 	}
+}
+
+func TestGetIscsiPortalById(t *testing.T) {
+	portal, err := GetIscsiPortalById(MockConn(), "if_4")
+	asserts := assert.New(t)
+	asserts.Equal("if_4", portal.Id)
+	asserts.Equal(IPv4, portal.IpProtocolVersion)
+	asserts.Equal("10.244.213.177", portal.IpAddress)
+	asserts.Equal("255.255.255.0", portal.Netmask)
+	asserts.Equal("10.244.213.1", portal.Gateway)
+	asserts.Equal("spa_eth2", portal.EthernetPort.Id)
+	asserts.Nil(err)
+}
+
+func TestGetIscsiPortalById_notFound(t *testing.T) {
+	portal, err := GetIscsiPortalById(MockConn(), "if_13")
+	asserts := assert.New(t)
+	asserts.Nil(portal)
+	restError := err.(*RestError)
+	asserts.Equal(uint64(0x7d13005), restError.ErrorCode)
+	asserts.Equal(404, restError.HttpStatusCode)
+}
+
+func TestDeleteIscsiPortal(t *testing.T) {
+	portal, _ := GetIscsiPortalById(MockConn(), "if_5")
+	err := portal.Delete()
+	assert.Nil(t, err)
+}
+
+func TestCreateIscsiPortal(t *testing.T) {
+	conn := MockConn()
+	port, _ := GetEthernetPortById(conn, "spa_eth3")
+	portal, err := CreateIscsiPortal(conn, port, "10.244.213.179", "255.255.255.0", "10.244.213.1")
+	asserts := assert.New(t)
+	asserts.Nil(err)
+	asserts.Equal("if_5", portal.Id)
+	asserts.Equal("10.244.213.179", portal.IpAddress)
+}
+
+func TestGetIscsiPortalList(t *testing.T) {
+	portals := GetIscsiPortalList(MockConn())
+	assert.Equal(t, 2, portals.Size())
 }

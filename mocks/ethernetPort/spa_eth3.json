@@ -1,0 +1,48 @@
+{
+  "content": {
+    "id": "spa_eth3",
+    "connectorType": 1,
+    "requestedSpeed": 100,
+    "supportedSpeeds": [
+      1000,
+      10000,
+      100,
+      0
+    ],
+    "sfpSupportedSpeeds": [],
+    "sfpSupportedProtocols": [],
+    "health": {
+      "value": 5,
+      "descriptionIds": [
+        "ALRT_PORT_LINK_DOWN_NOT_IN_USE"
+      ],
+      "descriptions": [
+        "The port link is down, but not in use. No action is required."
+      ]
+    },
+    "needsReplacement": false,
+    "name": "SP A Ethernet Port 3",
+    "portNumber": 3,
+    "mtu": 9000,
+    "bond": false,
+    "isLinkUp": false,
+    "macAddress": "00:60:16:5C:07:0A",
+    "isRSSCapable": false,
+    "isRDMACapable": false,
+    "requestedMtu": 9000,
+    "supportedMtus": [
+      1500,
+      9000
+    ],
+    "parent": {
+      "id": "spa",
+      "resource": "storageProcessor"
+    },
+    "storageProcessor": {
+      "id": "spa"
+    },
+    "parentStorageProcessor": {
+      "id": "spa"
+    }
+  }
+}

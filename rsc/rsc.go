@@ -30,15 +30,17 @@ type RscListCtor interface {
 	initList(filter string) RscLister
 }
 
-func Update(r Rscer) Rscer {
+func Update(r Rscer) (Rscer, error) {
 	if resp, err := r.GetConn().GetRscInst(r.GetType(), r.GetId()); err != nil {
 		log.WithError(err).Error("failed to get resource instance.")
+		return nil, err
 	} else {
 		if err = updateInstFromResp(resp, r); err != nil {
 			log.WithError(err).Error("failed to update resource.")
+			return nil, err
 		}
 	}
-	return r
+	return r, nil
 }
 
 func getElemFromResp(input, elem string) ([]byte, error) {

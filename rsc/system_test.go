@@ -1,7 +1,6 @@
 package rsc
 
 import (
-	"github.com/Sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -19,7 +18,6 @@ func TestUnity_Username(t *testing.T) {
 }
 
 func TestGetSystem(t *testing.T) {
-	logrus.SetLevel(logrus.DebugLevel)
 	system := NewUnityByConn(MockConn())
 	Update(system)
 

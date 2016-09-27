@@ -104,7 +104,7 @@ func TestMakeBody_rscLister(t *testing.T) {
 }
 
 func TestMakeBody_nestedRscer(t *testing.T) {
-	host := GetHostById(MockConn(), "Host_6")
+	host, _ := GetHostById(MockConn(), "Host_6")
 	hostAccess := []interface{}{
 		map[string]interface{}{"host": host, "mask": PRODUCTION},
 	}

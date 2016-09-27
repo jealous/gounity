@@ -1,0 +1,12 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/ethernetPort?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/instances/ethernetPort/spa_eth3?compact=true&fields=id,health,storageProcessor,needsReplacement,name,portNumber,speed,mtu,connectorType,bond,isLinkUp,macAddress,isRSSCapable,isRDMACapable,requestedSpeed,parentIOModule,parentStorageProcessor,supportedSpeeds,requestedMtu,supportedMtus,parent,sfpSupportedSpeeds,sfpSupportedProtocols",
+      "response": "spa_eth3.json"
+    }
+  ]
+}

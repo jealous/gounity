@@ -1,0 +1,15 @@
+{
+  "content": {
+    "id": "if_4",
+    "ipProtocolVersion": 4,
+    "ipAddress": "10.244.213.177",
+    "netmask": "255.255.255.0",
+    "gateway": "10.244.213.1",
+    "ethernetPort": {
+      "id": "spa_eth2"
+    },
+    "iscsiNode": {
+      "id": "iscsinode_spa_eth2"
+    }
+  }
+}

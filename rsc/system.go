@@ -73,7 +73,8 @@ func (unity *Unity) GetHostList() *HostList {
 }
 
 func (unity *Unity) GetHostById(id string) *Host {
-	return GetHostById(unity.GetConn(), id)
+	host, _ := GetHostById(unity.GetConn(), id)
+	return host
 }
 
 func (unity *Unity) GetHostByName(name string) *Host {

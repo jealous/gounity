@@ -1,0 +1,206 @@
+{
+  "content": {
+    "name": "ethernetPort",
+    "description": "Information about Ethernet ports in the storage system.  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/ethernetPort.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/ethernetPort/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the Ethernet port instance.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "health",
+        "type": "health",
+        "description": "Health information for the Ethernet port, as defined by the health resource type.  ",
+        "displayValue": "health"
+      },
+      {
+        "name": "storageProcessor",
+        "type": "storageProcessor",
+        "description": "SP on which the Ethernet port directly or indirectly resides, as defined by the storageProcessor resource type.  ",
+        "displayValue": "storageProcessor"
+      },
+      {
+        "name": "needsReplacement",
+        "type": "Boolean",
+        "description": "Indicates whether the Ethernet port needs replacement. Values are: \\u003Cul> \\u003Cli>true - Ethernet port needs replacement.\\u003C/li> \\u003Cli>false - Ethernet port does not need replacement.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "needsReplacement"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "description": "User-specified Ethernet port name.  ",
+        "displayValue": "name"
+      },
+      {
+        "name": "portNumber",
+        "type": "Integer",
+        "description": "Physical Ethernet port sequence number.  ",
+        "displayValue": "portNumber"
+      },
+      {
+        "name": "speed",
+        "type": "EPSpeedValuesEnum",
+        "description": "Current link speed of the Ethernet port.  ",
+        "displayValue": "speed"
+      },
+      {
+        "name": "mtu",
+        "type": "Integer",
+        "description": "Maximum Transmission Unit (MTU) packet size that the Ethernet port can transmit. The default is 1500 bytes per packet.  ",
+        "displayValue": "mtu"
+      },
+      {
+        "name": "connectorType",
+        "type": "ConnectorTypeEnum",
+        "description": "Physical connector type.  ",
+        "displayValue": "connectorType"
+      },
+      {
+        "name": "bond",
+        "type": "Boolean",
+        "description": "Indicates whether the Ethernet port is used in a link aggregation. Values are: \\u003Cul> \\u003Cli>true - Ethernet port is used in a link aggregation.\\u003C/li> \\u003Cli>false - Ethernet port is not used in a link aggregation.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "bond"
+      },
+      {
+        "name": "isLinkUp",
+        "type": "Boolean",
+        "description": "Indicates whether the Ethernet port has link. (Applies if the Ethernet port is configured with a link.) Indicates whether the Ethernet port's link is up. Values are: \\u003Cul> \\u003Cli>true - Link is up.\\u003C/li> \\u003Cli>false - Link is down.\\u003C/li> \\u003Cul>  ",
+        "displayValue": "isLinkUp"
+      },
+      {
+        "name": "macAddress",
+        "type": "String",
+        "description": "MAC address of the Ethernet port.  ",
+        "displayValue": "macAddress"
+      },
+      {
+        "name": "isRSSCapable",
+        "type": "Boolean",
+        "description": "Indicates whether the Ethernet port supports Receive Side Scaling (RSS). Values are: \\u003Cul> \\u003Cli>true - Ethernet port supports RSS.\\u003C/li> \\u003Cli>false - Ethernet port does not support RSS.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "isRSSCapable"
+      },
+      {
+        "name": "isRDMACapable",
+        "type": "Boolean",
+        "description": "Indicates whether the Ethernet port supports Remote Direct Memory Access (RDMA). Values are: \\u003Cul> \\u003Cli>true - Ethernet port supports RDMA.\\u003C/li> \\u003Cli>false - Ethernet port does not support RDMA.\\u003C/li> \\u003C/ul>  ",
+        "displayValue": "isRDMACapable"
+      },
+      {
+        "name": "requestedSpeed",
+        "type": "EPSpeedValuesEnum",
+        "description": "Link speed requested by the user.  ",
+        "displayValue": "requestedSpeed"
+      },
+      {
+        "name": "parentIOModule",
+        "type": "ioModule",
+        "description": "(Applies if the Ethernet port resides on an I/O module.) Parent I/O module of the Ethernet port, as defined by the ioModule resource type.  ",
+        "displayValue": "parentIOModule"
+      },
+      {
+        "name": "parentStorageProcessor",
+        "type": "storageProcessor",
+        "description": "(Applies if the Ethernet port resides directly on an SP.) Parent SP of the Ethernet port, as defined by the storageProcessor resource type.  ",
+        "displayValue": "parentStorageProcessor"
+      },
+      {
+        "name": "supportedSpeeds",
+        "type": "List\\u003CEPSpeedValuesEnum>",
+        "description": "Available speed values.  ",
+        "displayValue": "supportedSpeeds"
+      },
+      {
+        "name": "requestedMtu",
+        "type": "Integer",
+        "description": "MTU size requested by the user.  ",
+        "displayValue": "requestedMtu"
+      },
+      {
+        "name": "supportedMtus",
+        "type": "List\\u003CInteger>",
+        "description": "Available MTU sizes.  ",
+        "displayValue": "supportedMtus"
+      },
+      {
+        "name": "parent",
+        "type": "resourceRef",
+        "description": "Resource type and identifier of the Ethernet port's parent enclosure, as defined by the resourceRef resource type.  ",
+        "displayValue": "parent"
+      },
+      {
+        "name": "sfpSupportedSpeeds",
+        "type": "List\\u003CSFPSpeedValuesEnum>",
+        "description": "SFP (the small form-factor pluggable) supported speeds of the Ethernet port.  ",
+        "displayValue": "sfpSupportedSpeeds"
+      },
+      {
+        "name": "sfpSupportedProtocols",
+        "type": "List\\u003CSFPProtocolValuesEnum>",
+        "description": "SFP (the small form-factor pluggable) supported protocols of the Ethernet port.  ",
+        "displayValue": "sfpSupportedProtocols"
+      }
+    ],
+    "actions": [
+      {
+        "rel": "recommendForAggregation",
+        "description": "Recommend Ethernet ports to use for link aggregation.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "state": 2,
+            "name": "ethernetPort",
+            "type": "ethernetPort",
+            "direction": 0,
+            "description": "Ethernet port for which to recommend other ports for link aggregation.  ",
+            "optional": false
+          },
+          {
+            "state": 2,
+            "name": "recommendedPorts",
+            "type": "List\\u003CethernetPort>",
+            "direction": 1,
+            "description": "Recommended ports, in order of preference.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "modify",
+        "description": "Modify the Ethernet port's Maximum Transmission Unit (MTU) size.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "ethernetPort",
+            "direction": 0,
+            "description": "Unique identifier of the Ethernet port to modify.  ",
+            "optional": false
+          },
+          {
+            "name": "mtuSize",
+            "type": "Integer",
+            "direction": 0,
+            "description": "MTU packet size that the Ethernet port can transmit, in bytes.  ",
+            "optional": true
+          },
+          {
+            "name": "speed",
+            "type": "EPSpeedValuesEnum",
+            "direction": 0,
+            "description": "Requested data transmission speed for the Ethernet port.  ",
+            "optional": true
+          }
+        ]
+      }
+    ]
+  }
+}

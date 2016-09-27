@@ -2,6 +2,7 @@ package rsc
 
 import (
 	"fmt"
+	"github.com/Sirupsen/logrus"
 	"regexp"
 	"strings"
 )
@@ -87,10 +88,12 @@ func GetHostByName(conn *Connection, name string) *Host {
 	}
 }
 
-func GetHostById(conn *Connection, id string) *Host {
+func GetHostById(conn *Connection, id string) (*Host, error) {
 	host := &Host{Rsc: Rsc{conn: conn, type_: "host", Id: id}}
-	Update(host)
-	return host
+	if _, err := Update(host); err != nil {
+		return nil, err
+	}
+	return host, nil
 }
 
 func GetHostList(conn *Connection) *HostList {
@@ -105,7 +108,7 @@ func CreateHost(conn *Connection, name string) (*Host, error) {
 	if id, err := conn.PostInstance("host", makeBody(body)); err != nil {
 		return nil, err
 	} else {
-		return GetHostById(conn, id), nil
+		return GetHostById(conn, id)
 	}
 }
 
@@ -260,10 +263,12 @@ func GetInitiatorByUid(conn *Connection, uid string) *HostInitiator {
 	}
 }
 
-func GetInitiatorById(conn *Connection, id string) *HostInitiator {
+func GetInitiatorById(conn *Connection, id string) (*HostInitiator, error) {
 	initiator := &HostInitiator{Rsc: Rsc{conn: conn, type_: "hostInitiator", Id: id}}
-	Update(initiator)
-	return initiator
+	if _, err := Update(initiator); err != nil {
+		return nil, err
+	}
+	return initiator, nil
 }
 
 func CreateInitiator(conn *Connection, host *Host, uid string) (*HostInitiator, error) {
@@ -278,7 +283,7 @@ func CreateInitiator(conn *Connection, host *Host, uid string) (*HostInitiator, 
 		if id, err := conn.PostInstance("hostInitiator", makeBody(body)); err != nil {
 			return nil, err
 		} else {
-			initiator = GetInitiatorById(conn, id)
+			initiator, err = GetInitiatorById(conn, id)
 		}
 	}
 	return initiator, nil
@@ -342,6 +347,60 @@ type IscsiPortal struct {
 	IpProtocolVersion IpProtocolVersionEnum
 }
 
+type IscsiPortalList struct {
+	RscList
+}
+
+func (ipl *IscsiPortalList) initRsc() Rscer {
+	return &IscsiPortal{Rsc: Rsc{conn: ipl.conn, type_: "iscsiPortal"}}
+}
+
+type IscsiPortalListCtor struct {
+	conn *Connection
+}
+
+func (ipl *IscsiPortalListCtor) initList(filter string) RscLister {
+	ret := &IscsiPortalList{RscList: RscList{type_: "iscsiPortal", conn: ipl.conn}}
+	ret.filter = filter
+	return ret
+}
+
+func GetIscsiPortalList(conn *Connection) *IscsiPortalList {
+	return getRscList(&IscsiPortalListCtor{conn}).(*IscsiPortalList)
+}
+
+func CreateIscsiPortal(conn *Connection, port *EthernetPort, ip, mask, gateway string) (*IscsiPortal, error) {
+	param := map[string]interface{}{
+		"ethernetPort": port,
+		"ipAddress":    ip,
+		"netmask":      mask,
+		"gateway":      gateway,
+	}
+	if id, err := conn.PostInstance("iscsiPortal", makeBody(param)); err != nil {
+		logrus.WithError(err).Error("failed to create iscsiPortal")
+		return nil, err
+	} else {
+		return GetIscsiPortalById(conn, id)
+	}
+}
+
+func (portal *IscsiPortal) Delete() error {
+	return DeleteIscsiPortalById(portal.conn, portal.Id)
+}
+
+func DeleteIscsiPortalById(conn *Connection, id string) error {
+	_, err := conn.DeleteRscInst("iscsiPortal", id, "")
+	return err
+}
+
+func GetIscsiPortalById(conn *Connection, id string) (*IscsiPortal, error) {
+	portal := &IscsiPortal{Rsc: Rsc{conn: conn, type_: "iscsiPortal", Id: id}}
+	if _, err := Update(portal); err != nil {
+		return nil, err
+	}
+	return portal, nil
+}
+
 type EthernetPort struct {
 	Rsc
 	Health           Health
@@ -352,6 +411,14 @@ type EthernetPort struct {
 	IsLinkUp         bool
 	MacAddress       string
 	IsRDMACapable    bool
+}
+
+func GetEthernetPortById(conn *Connection, id string) (*EthernetPort, error) {
+	port := &EthernetPort{Rsc: Rsc{conn: conn, type_: "ethernetPort", Id: id}}
+	if _, err := Update(port); err != nil {
+		return nil, err
+	}
+	return port, nil
 }
 
 type IscsiNode struct {

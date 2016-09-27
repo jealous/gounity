@@ -1,0 +1,40 @@
+{
+  "indices": [
+    {
+      "url": "/api/types/iscsiPortal?compact=True",
+      "response": "type.json"
+    },
+    {
+      "url": "/api/types/iscsiPortal/instances?compact=true&fields=id,ethernetPort,iscsiNode,ipAddress,netmask,v6PrefixLength,gateway,vlanId,ipProtocolVersion",
+      "response": "all.json"
+    },
+    {
+      "url": "/api/instances/iscsiPortal/if_4?compact=true&fields=id,ethernetPort,iscsiNode,ipAddress,netmask,v6PrefixLength,gateway,vlanId,ipProtocolVersion",
+      "response": "if_4.json"
+    },
+    {
+      "url": "/api/instances/iscsiPortal/if_5?compact=true&fields=id,ethernetPort,iscsiNode,ipAddress,netmask,v6PrefixLength,gateway,vlanId,ipProtocolVersion",
+      "response": "if_5.json"
+    },
+    {
+      "url": "/api/instances/iscsiPortal/if_13?compact=true&fields=id,ethernetPort,iscsiNode,ipAddress,netmask,v6PrefixLength,gateway,vlanId,ipProtocolVersion",
+      "response": "not_found.json"
+    },
+    {
+      "url": "/api/instances/iscsiPortal/if_5?compact=true",
+      "response": "empty.json"
+    },
+    {
+      "url": "/api/types/iscsiPortal/instances?compact=true",
+      "body": {
+        "ethernetPort": {
+          "id": "spa_eth3"
+        },
+        "gateway": "10.244.213.1",
+        "ipAddress": "10.244.213.179",
+        "netmask": "255.255.255.0"
+      },
+      "response": "create_iscsiPortal.json"
+    }
+  ]
+}

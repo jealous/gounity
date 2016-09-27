@@ -1,0 +1,190 @@
+{
+  "content": {
+    "name": "iscsiPortal",
+    "description": "Information about the iSCSI portals in the storage system.  ",
+    "documentation": "https://10.244.223.61/apidocs/classes/iscsiPortal.html",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://10.244.223.61/api/types/iscsiPortal/instances"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the iscsiPortal instance.  ",
+        "displayValue": "id"
+      },
+      {
+        "name": "ethernetPort",
+        "type": "ethernetPort",
+        "description": "Ethernet port used by the iSCSI portal.  ",
+        "displayValue": "ethernetPort"
+      },
+      {
+        "name": "iscsiNode",
+        "type": "iscsiNode",
+        "description": "iSCSI node used by the iSCSI portal.  ",
+        "displayValue": "iscsiNode"
+      },
+      {
+        "name": "ipAddress",
+        "type": "IPAddress",
+        "description": "IP address of the iSCSI portal.  ",
+        "displayValue": "ipAddress"
+      },
+      {
+        "name": "netmask",
+        "type": "IPAddress",
+        "description": "IPv4 netmask for the network interface, if it uses an IPv4 address.  ",
+        "displayValue": "netmask"
+      },
+      {
+        "name": "v6PrefixLength",
+        "type": "Integer",
+        "description": "IPv6 prefix length for the interface, if it uses an IPv6 address.  ",
+        "displayValue": "v6PrefixLength"
+      },
+      {
+        "name": "gateway",
+        "type": "IPAddress",
+        "description": "IPv4 or IPv6 gateway address for the network interface.  ",
+        "displayValue": "gateway"
+      },
+      {
+        "name": "vlanId",
+        "type": "Integer",
+        "description": "Virtual Local Area Network (VLAN) identifier for the interface. The interface uses the identifier to accept packets that have matching VLAN tags. \\u003Cp/> Values are 1 - 4094.  ",
+        "displayValue": "vlanId"
+      },
+      {
+        "name": "ipProtocolVersion",
+        "type": "IpProtocolVersionEnum",
+        "description": "Indicates whether the iSCSI portal is over IPv4 or IPv6.  ",
+        "displayValue": "ipProtocolVersion"
+      }
+    ],
+    "actions": [
+      {
+        "rel": "create",
+        "description": "Create an iSCSI network portal.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "ethernetPort",
+            "type": "ethernetPort",
+            "direction": 0,
+            "description": "Ethernet port used by the iSCSI portal.  ",
+            "optional": false
+          },
+          {
+            "name": "ipAddress",
+            "type": "IPAddress",
+            "direction": 0,
+            "description": "IP address of the iSCSI portal.  ",
+            "optional": false
+          },
+          {
+            "name": "netmask",
+            "type": "IPAddress",
+            "direction": 0,
+            "description": "IPv4 netmask for the network interface, if it uses an IPv4 address.  ",
+            "optional": true
+          },
+          {
+            "name": "v6PrefixLength",
+            "type": "Integer",
+            "direction": 0,
+            "description": "IPv6 prefix length for the iSCSI portal, if it uses an IPv6 address.  ",
+            "optional": true
+          },
+          {
+            "name": "vlanId",
+            "type": "Integer",
+            "direction": 0,
+            "description": "Ethernet virtual LAN identifier used for tagging iSCSI portal outgoing packets and for filtering iSCSI portal incoming packets. \\u003Cp/> Values are 1 - 4094.  ",
+            "optional": true
+          },
+          {
+            "name": "gateway",
+            "type": "IPAddress",
+            "direction": 0,
+            "description": "Gateway of the iSCSI portal.  ",
+            "optional": true
+          },
+          {
+            "name": "id",
+            "type": "iscsiPortal",
+            "direction": 1,
+            "description": "New iscsiPortal instance.  ",
+            "optional": false
+          }
+        ]
+      },
+      {
+        "rel": "modify",
+        "description": "Modify an iSCSI network portal.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "iscsiPortal",
+            "direction": 0,
+            "description": "Unique identifier of the iscsiPortal instance to modify.  ",
+            "optional": false
+          },
+          {
+            "name": "ipAddress",
+            "type": "IPAddress",
+            "direction": 0,
+            "description": "IP address of the iSCSI portal.  ",
+            "optional": true
+          },
+          {
+            "name": "netmask",
+            "type": "IPAddress",
+            "direction": 0,
+            "description": "IPv4 netmask for the network interface, if it uses an IPv4 address.  ",
+            "optional": true
+          },
+          {
+            "name": "v6PrefixLength",
+            "type": "Integer",
+            "direction": 0,
+            "description": "IPv6 prefix length for the interface, if it uses an IPv6 address.  ",
+            "optional": true
+          },
+          {
+            "name": "vlanId",
+            "type": "Integer",
+            "direction": 0,
+            "description": "Ethernet virtual LAN identifier used for tagging iSCSI portal outgoing packets and for filtering iSCSI portal incoming packets. \\u003Cp/> Values are 1 - 4094. Empty string or null to unset.  ",
+            "optional": true
+          },
+          {
+            "name": "gateway",
+            "type": "IPAddress",
+            "direction": 0,
+            "description": "Gateway of the iSCSI portal. Empty string to unset.  ",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "rel": "delete",
+        "description": "Delete an iSCSI network portal. \\u003Cp/> iSCSI network portal can not be deleted if there are active iSCSI sessions over it.  ",
+        "documentation": "",
+        "arguments": [
+          {
+            "name": "id",
+            "type": "iscsiPortal",
+            "direction": 0,
+            "description": " ",
+            "optional": false
+          }
+        ]
+      }
+    ]
+  }
+}

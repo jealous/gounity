@@ -59,7 +59,7 @@ type Unity interface {
 	CreateHost(name string) (*rsc.Host, error)
 }
 
-func Update(r rsc.Rscer) rsc.Rscer {
+func Update(r rsc.Rscer) (rsc.Rscer, error) {
 	return rsc.Update(r)
 }
 
